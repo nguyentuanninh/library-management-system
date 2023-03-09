@@ -2,28 +2,47 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dbObject;
+package entity;
 
 /**
  *
  * @author Nguyen Minh
  */
-public class Borrower_Table {
+public class Borrower {
+    private String id;
     private String username;
     private int bookid;
     private String borrow_from;
     private String borrow_to;
     private String status;
 
-    public Borrower_Table() {
+    public Borrower() {
     }
 
-    public Borrower_Table(String username, int bookid, String borrow_from, String borrow_to, String status) {
+    public Borrower(String id, String username, int bookid, String borrow_from, String borrow_to, String status) {
+        this.id = id;
         this.username = username;
         this.bookid = bookid;
         this.borrow_from = borrow_from;
         this.borrow_to = borrow_to;
         this.status = status;
+    }
+    
+    public Borrower(String id, String username, int bookid, String status){
+        this.id = id;
+        this.username = username;
+        this.bookid = bookid;
+        this.borrow_from = null;
+        this.borrow_to = null;
+        this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {
