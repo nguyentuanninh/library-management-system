@@ -4,7 +4,10 @@
  */
 package dbConnect;
 
+import DAO.BookDAO;
+import entity.Book;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +16,12 @@ import java.sql.Connection;
 public class TestConnection {
     public static void main(String[] args) throws Exception {
         DBContext db= new DBContext();
-        Connection con= db.getConnection();
-        System.out.println(con);
+        BookDAO bdao= new BookDAO();
+        ArrayList<Book> list= new ArrayList<>();
+        list= bdao.getAllBook();
+        for(Book b: list){
+            System.out.println(b.getBookid()+ " "+ b.getName());
+        }
+
     }
 }

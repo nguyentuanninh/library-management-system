@@ -13,7 +13,7 @@ public class Book {
     private String name;
     private String author;
     private String img;
-    private String category;
+    private int category;
     private String publisher;
     private String language;
     private int total;
@@ -23,7 +23,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(int bookid, String name, String author, String img, String category, String publisher, String language, int total, int current, String poisition) {
+    public Book(int bookid, String name, String author, String img, int category, String publisher, String language, int total, int current, String poisition) {
         this.bookid = bookid;
         this.name = name;
         this.author = author;
@@ -68,11 +68,11 @@ public class Book {
         this.img = img;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 

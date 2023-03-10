@@ -4,13 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/dbConnect/TestConnection.java</file>
-            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/BorrowerDAO.java</file>
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/BookDAO.java</file>
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/Book.java</file>
-            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/UserDAO.java</file>
-            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/FeedbackDAO.java</file>
-            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/dbConnect/DBContext.java</file>
-            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/CategoryDAO.java</file>
         </group>
     </open-files>
 </project-private>
