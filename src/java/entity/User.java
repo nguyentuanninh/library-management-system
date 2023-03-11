@@ -4,33 +4,37 @@
  */
 package entity;
 
+import java.sql.Date;
+
 /**
  *
  * @author Nguyen Minh
  */
 public class User {
     private String username;
-    private boolean role;
-    private boolean sex;
-    private String avt;
-    private String date_birth;
-    private String phone;
-    private String gmail;
+   private String password;
+   private boolean role;
+   private String name;
+   private String avt;
+   private boolean sex;
+   private Date datebirth;
+   private String phone;
+   private String gmail;
 
     public User() {
     }
 
-    public User(String username, boolean role, boolean sex, String avt, String date_birth, String phone, String gmail) {
+    public User(String username, String password, boolean role, String name, String avt, boolean sex, Date datebirth, String phone, String gmail) {
         this.username = username;
+        this.password = password;
         this.role = role;
-        this.sex = sex;
+        this.name = name;
         this.avt = avt;
-        this.date_birth = date_birth;
+        this.sex = sex;
+        this.datebirth = datebirth;
         this.phone = phone;
         this.gmail = gmail;
     }
-
-    
 
     public String getUsername() {
         return username;
@@ -38,6 +42,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isRole() {
@@ -48,12 +60,12 @@ public class User {
         this.role = role;
     }
 
-    public boolean isSex() {
-        return sex;
+    public String getName() {
+        return name;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAvt() {
@@ -64,12 +76,20 @@ public class User {
         this.avt = avt;
     }
 
-    public String getDate_birth() {
-        return date_birth;
+    public boolean isSex() {
+        return sex;
     }
 
-    public void setDate_birth(String date_birth) {
-        this.date_birth = date_birth;
+    public void setSex(boolean sex) {
+        this.sex = sex;
+    }
+
+    public Date getDatebirth() {
+        return datebirth;
+    }
+
+    public void setDatebirth(Date datebirth) {
+        this.datebirth = datebirth;
     }
 
     public String getPhone() {
@@ -87,23 +107,9 @@ public class User {
     public void setGmail(String gmail) {
         this.gmail = gmail;
     }
+   
+   
 
-    @Override
-    public String toString() {
-        String strrole;
-        String strsex;
-        if (role){
-            strrole = "Admin";
-        }else {
-            strrole = "Student";
-        }
-        if (sex){
-            strsex = "Male";
-        }else{
-            strsex = "Female";
-        }
-        return "User{" + ", username=" + username + ", role=" + strrole + ", sex=" + strsex + ", avt=" + avt + ", date_birth=" + date_birth + ", phone=" + phone + ", gmail=" + gmail + '}';
-    }
 }
   
     

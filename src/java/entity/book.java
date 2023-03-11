@@ -18,12 +18,12 @@ public class Book {
     private String language;
     private int total;
     private int current;
-    private String poisition;
+    private String position;
 
     public Book() {
     }
 
-    public Book(int bookid, String name, String author, String img, int category, String publisher, String language, int total, int current, String poisition) {
+    public Book(int bookid, String name, String author, String img, int category, String publisher, String language, int total, int current, String position) {
         this.bookid = bookid;
         this.name = name;
         this.author = author;
@@ -33,7 +33,7 @@ public class Book {
         this.language = language;
         this.total = total;
         this.current = current;
-        this.poisition = poisition;
+        this.position = position;
     }
 
     public int getBookid() {
@@ -108,18 +108,13 @@ public class Book {
         this.current = current;
     }
 
-    public String getPoisition() {
-        return poisition;
+    public String getPosition() {
+        return position;
     }
 
-    public void setPoisition(String poisition) {
-        this.poisition = poisition;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" + "bookid=" + bookid + ", name=" + name + ", author=" + author + ", img=" + img + ", category=" + category + ", nxb=" + publisher + ", language=" + language + ", total=" + total + ", current=" + current + ", poisition=" + poisition + '}';
-    }
-    
     
 }
