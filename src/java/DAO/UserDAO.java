@@ -36,7 +36,7 @@ public class UserDAO {
                 user.setName(rs.getString("name"));
                 user.setAvt(rs.getString("avt"));
                 user.setSex(rs.getBoolean("sex"));
-                user.setDatebirth(rs.getDate("datebirth"));
+                user.setDatebirth("datebirth");
                 user.setPhone(rs.getString("phone"));
                 user.setGmail(rs.getString("gmail"));
 
@@ -82,7 +82,7 @@ public class UserDAO {
                 user.setName(rs.getString("name"));
                 user.setAvt(rs.getString("avt"));
                 user.setSex(rs.getBoolean("sex"));
-                user.setDatebirth(rs.getDate("datebirth"));
+                user.setDatebirth("datebirth");
                 user.setPhone(rs.getString("phone"));
                 user.setGmail(rs.getString("gmail"));
             }
@@ -122,7 +122,7 @@ public class UserDAO {
             ps.setString(4, user.getName());
             ps.setString(5, user.getAvt());
             ps.setBoolean(6, user.isSex());
-            ps.setDate(7, user.getDatebirth());
+            ps.setString(7, user.getDatebirth());
             ps.setString(8, user.getPhone());
             ps.setString(9, user.getGmail());
 
@@ -167,7 +167,7 @@ public class UserDAO {
             ps.setString(3, user.getName());
             ps.setString(4, user.getAvt());
             ps.setBoolean(5, user.isSex());
-            ps.setDate(6, user.getDatebirth());
+            ps.setString(6, user.getDatebirth());
             ps.setString(7, user.getPhone());
             ps.setString(8, user.getGmail());
             ps.setString(9, user.getUsername());

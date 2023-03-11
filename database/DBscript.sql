@@ -106,6 +106,8 @@ VALUES
 ,(10026,N'Dẫn Luận Về Ngôn Ngữ Học','img/book/book26.jpg','Partha Dasgupta',4,N'Nhà xuất bản Đồng Đức',N'vietnamese',3,3,'N34' )
 -------------------------------------------------
 Go
+INSERT INTO dbo.[USER](username,password,role) 
+VALUES('admin','admin',1);
 INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) 
 VALUES('user1','123456',0,'alex1','img/avt/atv1.jpg',1,'2000-12-23','0123456789','user1@gmail.com');
 INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user2','123456',0,'alex2','img/avt/atv2.jpg',1,'2000-12-23','0123456789','user2@gmail.com');

@@ -27,10 +27,10 @@ newUser.setRole(false);
 newUser.setName("John Doeeeeee");
 newUser.setAvt("img/avt/john.jpg");
 newUser.setSex(true);
-newUser.setDatebirth(new Date(2023-03-11));
+newUser.setDatebirth("2023-03-11");
 newUser.setPhone("1234567890");
 newUser.setGmail("johndoe@gmail.com");
-userDao.updateUser(newUser);
+//userDao.deleteUser("JohnDoe");
 
     ArrayList<User> list= userDao.getAllUser();
     for(User user: list){

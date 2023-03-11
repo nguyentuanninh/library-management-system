@@ -6,6 +6,8 @@
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/dbConnect/TestConnection.java</file>
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/BookDAO.java</file>
             <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/Book.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/UserDAO.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/User.java</file>
         </group>
     </open-files>
 </project-private>

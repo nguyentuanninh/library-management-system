@@ -1,12 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
-    <session-config>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>controller.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HomeAdminPage</servlet-name>
+        <servlet-class>controller.HomeAdminPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListBorrow</servlet-name>
+        <servlet-class>controller.ListBorrow</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListBook</servlet-name>
+        <servlet-class>controller.ListBook</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListUser</servlet-name>
+        <servlet-class>controller.ListUser</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>Feedback</servlet-name>
+        <servlet-class>controller.Feedback</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controller.Logout</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>controller.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListBook</servlet-name>
+        <url-pattern>/ListBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListUser</servlet-name>
+        <url-pattern>/ListUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Feedback</servlet-name>
+        <url-pattern>/Feedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeAdminPage</servlet-name>
+        <url-pattern>/HomeAdminPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListBorrow</servlet-name>
+        <url-pattern>/ListBorrow</url-pattern>
+    </servlet-mapping>
+        <session-config>
         <session-timeout>
             30
         </session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 </web-app>

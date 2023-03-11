@@ -11,20 +11,20 @@ import java.sql.Date;
  * @author Nguyen Minh
  */
 public class User {
-    private String username;
+   private String username;
    private String password;
    private boolean role;
    private String name;
    private String avt;
    private boolean sex;
-   private Date datebirth;
+   private String datebirth;
    private String phone;
    private String gmail;
 
     public User() {
     }
 
-    public User(String username, String password, boolean role, String name, String avt, boolean sex, Date datebirth, String phone, String gmail) {
+    public User(String username, String password, boolean role, String name, String avt, boolean sex, String datebirth, String phone, String gmail) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -35,6 +35,7 @@ public class User {
         this.phone = phone;
         this.gmail = gmail;
     }
+
 
     public String getUsername() {
         return username;
@@ -84,11 +85,11 @@ public class User {
         this.sex = sex;
     }
 
-    public Date getDatebirth() {
+    public String getDatebirth() {
         return datebirth;
     }
 
-    public void setDatebirth(Date datebirth) {
+    public void setDatebirth(String datebirth) {
         this.datebirth = datebirth;
     }
 
