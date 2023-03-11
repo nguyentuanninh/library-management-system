@@ -58,12 +58,12 @@ public class Login extends HttpServlet {
                 // Redirect to the admin page
                 session.setAttribute("username", username);
                 session.setAttribute("role", "admin");
-                response.sendRedirect("HomeAdminPage");
+                response.sendRedirect("HomePageAdmin");
             } else {
                 // Redirect to the user page
                 session.setAttribute("username", username);
                 session.setAttribute("role", "user");
-                response.sendRedirect("HomeUserPage");
+                response.sendRedirect("HomePageUser");
             }
         } else {
             request.setAttribute("message", "Username or Password is wrong");

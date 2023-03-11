@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>controller.ResetPassword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/ResetPassword</url-pattern>
+    </servlet-mapping>   
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>controller.UpdateUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/UpdateUser</url-pattern>
+    </servlet-mapping>   
+    <servlet>
+        <servlet-name>ViewUser</servlet-name>
+        <servlet-class>controller.ViewUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewUser</servlet-name>
+        <url-pattern>/ViewUser</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>controller.CreateUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/CreateUser</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>controller.DeleteUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
+    </servlet-mapping> 
+
+    <servlet>
         <servlet-name>Register</servlet-name>
         <servlet-class>controller.Register</servlet-class>
     </servlet>
@@ -8,37 +49,33 @@
         <servlet-name>Register</servlet-name>
         <url-pattern>/Register</url-pattern>
     </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>HomeAdminPage</servlet-name>
-        <servlet-class>controller.HomeAdminPage</servlet-class>
-    </servlet>
     <servlet>
         <servlet-name>ListBorrow</servlet-name>
         <servlet-class>controller.ListBorrow</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ListBook</servlet-name>
         <servlet-class>controller.ListBook</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ListUser</servlet-name>
         <servlet-class>controller.ListUser</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>Feedback</servlet-name>
         <servlet-class>controller.Feedback</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>controller.Logout</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>controller.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomePageAdmin</servlet-name>
+        <servlet-class>controller.HomePageAdmin</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
@@ -61,14 +98,14 @@
         <url-pattern>/Feedback</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomeAdminPage</servlet-name>
-        <url-pattern>/HomeAdminPage</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ListBorrow</servlet-name>
         <url-pattern>/ListBorrow</url-pattern>
     </servlet-mapping>
-        <session-config>
+    <servlet-mapping>
+        <servlet-name>HomePageAdmin</servlet-name>
+        <url-pattern>/HomePageAdmin</url-pattern>
+    </servlet-mapping>
+    <session-config>
         <session-timeout>
             30
         </session-timeout>
@@ -77,4 +114,7 @@
         </cookie-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>Login</welcome-file>
+    </welcome-file-list>
 </web-app>

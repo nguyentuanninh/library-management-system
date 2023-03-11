@@ -10,20 +10,17 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  *
  * @author MSII
  */
-public class Register extends HttpServlet {
+public class CreateUser extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("Register.jsp").forward(req, resp);
+        req.getRequestDispatcher("CreateUser.jsp").forward(req, resp);
     }
 
     @Override
@@ -33,14 +30,14 @@ public class Register extends HttpServlet {
         User u= udao.findUserByUsername(username);
         if(u!= null){
             request.setAttribute("message", "*Username really exit");
-            request.getRequestDispatcher("Register.jsp").forward(request, resp);
+            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
             return;
         }
         String password = request.getParameter("password");
         String passwordConfirm = request.getParameter("passwordConfirm");
         if (!password.equals(passwordConfirm)) {
             request.setAttribute("message", "*Password don't match passwordConfirm");
-            request.getRequestDispatcher("Register.jsp").forward(request, resp);
+            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
             return;
         }
         String name = request.getParameter("name");
@@ -61,10 +58,7 @@ public class Register extends HttpServlet {
         udao.insertUser(user);
         
         //validate session then login again
-        HttpSession session= request.getSession();
-        session.invalidate();
-        request.setAttribute("messagRegister", "Register susscessfully, please Login");
-        request.getRequestDispatcher("Login.jsp").forward(request, resp);
+        resp.sendRedirect("ListUser");
+     
     }
-
 }

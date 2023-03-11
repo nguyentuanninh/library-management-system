@@ -20,7 +20,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form action="Register" method="POST">
+                                        <form action="CreateUser" method="POST">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
@@ -89,9 +89,6 @@
                                                     <input class="btn btn-primary" type="submit" value="Create Account"/></div>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="Login">Have an account? Go to login</a></div>
                                     </div>
                                 </div>
                             </div>

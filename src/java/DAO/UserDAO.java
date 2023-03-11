@@ -7,8 +7,10 @@ package DAO;
 import dbConnect.DBContext;
 import entity.User;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -36,12 +38,14 @@ public class UserDAO {
                 user.setName(rs.getString("name"));
                 user.setAvt(rs.getString("avt"));
                 user.setSex(rs.getBoolean("sex"));
-                user.setDatebirth("datebirth");
+                user.setDatebirth(rs.getString("datebirth"));
                 user.setPhone(rs.getString("phone"));
                 user.setGmail(rs.getString("gmail"));
+                if(!user.isRole()){
+                     users.add(user);
 
-                users.add(user);
-
+                }
+               
             }
         } catch (Exception e) {
 
@@ -82,7 +86,48 @@ public class UserDAO {
                 user.setName(rs.getString("name"));
                 user.setAvt(rs.getString("avt"));
                 user.setSex(rs.getBoolean("sex"));
-                user.setDatebirth("datebirth");
+                user.setDatebirth(rs.getString("datebirth"));
+                user.setPhone(rs.getString("phone"));
+                user.setGmail(rs.getString("gmail"));
+            }
+        }catch(Exception e){
+            
+        }finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+
+            }
+        }
+        return user;
+    }
+    
+    public User findUserByUsername(String username) {
+        User user = null;
+        String sql = "SELECT * FROM [USER] WHERE username = ?";
+        DBContext db = new DBContext();
+        try {
+            conn = db.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                user = new User();
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setRole(rs.getBoolean("role"));
+                user.setName(rs.getString("name"));
+                user.setAvt(rs.getString("avt"));
+                user.setSex(rs.getBoolean("sex"));
+                user.setDatebirth(rs.getString("datebirth"));
                 user.setPhone(rs.getString("phone"));
                 user.setGmail(rs.getString("gmail"));
             }
@@ -120,7 +165,12 @@ public class UserDAO {
             ps.setString(2, user.getPassword());
             ps.setBoolean(3, user.isRole());
             ps.setString(4, user.getName());
-            ps.setString(5, user.getAvt());
+            if(user.getAvt()==null){
+                ps.setString(5, "img/avt/avt.jpg");
+            }else{
+                 ps.setString(5, user.getAvt());
+            }
+           
             ps.setBoolean(6, user.isSex());
             ps.setString(7, user.getDatebirth());
             ps.setString(8, user.getPhone());
@@ -168,9 +218,11 @@ public class UserDAO {
             ps.setString(4, user.getAvt());
             ps.setBoolean(5, user.isSex());
             ps.setString(6, user.getDatebirth());
+            
             ps.setString(7, user.getPhone());
             ps.setString(8, user.getGmail());
             ps.setString(9, user.getUsername());
+
             ps.executeUpdate();
 
         } catch (Exception e) {

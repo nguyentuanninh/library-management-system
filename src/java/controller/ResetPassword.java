@@ -12,30 +12,31 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  *
  * @author MSII
  */
-public class ListUser extends HttpServlet {
+public class ResetPassword extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
-//            resp.sendRedirect("Login");
-//            return;
-//        }
-        UserDAO uDAO = new UserDAO();
-        ArrayList<User> list = uDAO.getAllUser();
-        req.setAttribute("listUser", list);
-        req.getRequestDispatcher("ListUser.jsp").forward(req, resp);
+        HttpSession session = req.getSession();
+        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
+            resp.sendRedirect("Login");
+            return;
+        }
+        String username= req.getParameter("id");
+        UserDAO uDAO= new UserDAO();
+        User user= uDAO.findUserByUsername(username);
+        user.setPassword("123456");
+        uDAO.updateUser(user);
+        resp.sendRedirect("ListUser");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.doGet(req, resp);
     }
 
 }

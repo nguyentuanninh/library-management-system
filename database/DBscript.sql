@@ -109,10 +109,10 @@ Go
 INSERT INTO dbo.[USER](username,password,role) 
 VALUES('admin','admin',1);
 INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) 
-VALUES('user1','123456',0,'alex1','img/avt/atv1.jpg',1,'2000-12-23','0123456789','user1@gmail.com');
-INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user2','123456',0,'alex2','img/avt/atv2.jpg',1,'2000-12-23','0123456789','user2@gmail.com');
-INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user3','123456',0,'alex3','img/avt/atv3.jpg',1,'2000-12-23','0123456789','user3@gmail.com');
-INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user4','123456',0,'alex4','img/avt/atv4.jpg',1,'2000-12-23','0123456789','user4@gmail.com');
+VALUES('user1','123456',0,'alex1','img/avt/avt1.jpg',1,'2000-12-23','0123443789','user1@gmail.com');
+INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user2','123456',0,'alex2','img/avt/avt2.jpg',1,'2000-12-23','0195456789','user2@gmail.com');
+INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user3','123456',0,'alex3','img/avt/avt3.jpg',0,'2000-12-23','0123493489','user3@gmail.com');
+INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail) VALUES('user4','123456',0,'alex4','img/avt/avt4.jpg',1,'2000-12-23','0193214789','user4@gmail.com');
 ---------------------------------------------------
 GO
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user1',10001,'2023-3-9','2023-3-24','Borrowed');
