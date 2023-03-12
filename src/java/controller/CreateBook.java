@@ -38,7 +38,7 @@ public class CreateBook extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-                HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
             resp.sendRedirect("Login");
             return;
@@ -57,17 +57,20 @@ public class CreateBook extends HttpServlet {
             // Create a new Book object with the given parameters
             Book newBook = new Book(bookid, name, author, category, publisher, language, total, current, position);
             BookDAO bDAO = new BookDAO();
-            if(bDAO.getBookById(bookid)!= null){
-                request.setAttribute("book", bDAO.getBookById(bookid));
+            if (bDAO.getBookById(bookid) != null) {
+                CategoryDAO cDAO = new CategoryDAO();
+                ArrayList<Category> list = cDAO.getListCategory();
+                request.setAttribute("list", list);
+                request.setAttribute("book", newBook);
                 request.setAttribute("mess", "BookId really exsit");
                 request.getRequestDispatcher("CreateBook.jsp").forward(request, resp);
+                return;
             }
             bDAO.insertbook(newBook);
             resp.sendRedirect("ListBook");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        resp.sendRedirect("ListBook");
     }
 
 }

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>SearchBook</servlet-name>
+        <servlet-class>controller.SearchBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchBook</servlet-name>
+        <url-pattern>/SearchBook</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>UpdateBook</servlet-name>
         <servlet-class>controller.UpdateBook</servlet-class>
     </servlet>

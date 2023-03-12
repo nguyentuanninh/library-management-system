@@ -55,6 +55,33 @@ public class BookDAO {
         }
         return null;
     }
+    
+        public ArrayList<Book> getBookByName(String name) {
+        ArrayList<Book> list = new ArrayList<>();
+        String sql = "select * from book where [name] like '%"+name+"%'";
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            pt = con.prepareStatement(sql);
+            rs = pt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book(
+                        rs.getInt(1), rs.getString(2),
+                        rs.getString(4), rs.getString(3),
+                        rs.getInt(5), rs.getString(6),
+                        rs.getString(7), rs.getInt(8),
+                        rs.getInt(9), rs.getString(10));
+                list.add(book);
+            }
+            con.close();
+            pt.close();
+            rs.close();
+            return list;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
 
     public Book getBookById(int id) {
         String sql = "SELECT * FROM book WHERE id = ?";
@@ -69,8 +96,8 @@ public class BookDAO {
                 book = new Book(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getString("img"),
                         rs.getString("author"),
+                        rs.getString("img"),
                         rs.getInt("category"),
                         rs.getString("publisher"),
                         rs.getString("language"),
@@ -99,7 +126,7 @@ public class BookDAO {
         try {
             con = db.getConnection();
             pt = con.prepareStatement("UPDATE book "
-                    + "SET name=?, img=?, author=?, category=?, publisher=?, language=?, total=?, current=?, position=? "
+                    + "SET [name]=?, img=?, author=?, category=?, publisher=?, [language]=?, total=?, [current]=?, position=? "
                     + "WHERE id=?");
 
             // Set parameters
@@ -118,6 +145,7 @@ public class BookDAO {
             con.close();
             pt.close();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

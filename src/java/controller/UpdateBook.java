@@ -4,22 +4,44 @@
  */
 package controller;
 
+import DAO.BookDAO;
+import entity.Book;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
  *
  * @author MSII
  */
-public class UpdateBook extends HttpServlet{
+public class UpdateBook extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
+            resp.sendRedirect("Login");
+            return;
+        }
+        try {
+            int bookid = Integer.parseInt(request.getParameter("bookid"));
+            String name = request.getParameter("name");
+            String author = request.getParameter("author");
+            int category = Integer.parseInt(request.getParameter("category"));
+            String publisher = request.getParameter("publisher");
+            String language = request.getParameter("language");
+            int total = Integer.parseInt(request.getParameter("total"));
+            int current = Integer.parseInt(request.getParameter("current"));
+            String position = request.getParameter("position");
+            Book newBook = new Book(bookid, name, author, category, publisher, language, total, current, position);
+            BookDAO bDAO = new BookDAO();
+            bDAO.updateBook(newBook);
+            resp.sendRedirect("ViewBook?id="+bookid);
+        } catch (Exception e) {
+        }
     }
-    
-    
+
 }

@@ -24,7 +24,16 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
-            <div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form method="post" action="SearchBook" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input name="name" class="form-control" type="text" placeholder="Search name of book..." aria-label="Search for..."
+                           aria-describedby="btnNavbarSearch" />
+                    
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
+                            class="fas fa-search"></i></button> 
+                </div>
+            </form>
+            <div >
                 <a href="CreateBook" type="button" class="btn btn-primary">Add Book</a>
             </div>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -102,7 +111,7 @@
                                                                 <i class="fa-solid fa-eye"></i>
                                                             </span>
                                                         </a>
-              
+
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -138,17 +147,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script>
-                                                               window.addEventListener('DOMContentLoaded', event => {
-                                                                   const sidebarToggle = document.body.querySelector('#sidebarToggle');
-                                                                   if (sidebarToggle) {
-                                                                       sidebarToggle.addEventListener('click', event => {
-                                                                           event.preventDefault();
-                                                                           document.body.classList.toggle('sb-sidenav-toggled');
-                                                                           localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-                                                                       });
-                                                                   }
+            window.addEventListener('DOMContentLoaded', event => {
+                const sidebarToggle = document.body.querySelector('#sidebarToggle');
+                if (sidebarToggle) {
+                    sidebarToggle.addEventListener('click', event => {
+                        event.preventDefault();
+                        document.body.classList.toggle('sb-sidenav-toggled');
+                        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+                    });
+                }
 
-                                                               });
+            });
         </script>
 
     </body>

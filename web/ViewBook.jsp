@@ -26,27 +26,26 @@
                 <main>
                     <section>
                         <div class="container py-5">
-                            <div class="row justify-content-center">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                            <img src="${book.img}"
+                                                 alt="avatar" style="width: 90%; height: auto; object-fit: cover;">
+                                            <h5 class="my-3">${book.bookid}</h5>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-8 ">
-                                    <p class="text-danger">${mess}</p>
-                                    <form action="CreateBook" method="post" class="card mb-4">
+                                    <form action="UpdateBook" method="get" class="card mb-4">
+                                        <input type="hidden" name="bookid" value="${book.bookid}"/>
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Book Id</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input type="number" name="bookid" value="${book.bookid}" required/>
-
-                                                </div>
-                                            </div>
-                                            <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <p class="mb-0">Book Name</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="name" value="${book.name}" required/>
+                                                    <input style="width:70%" type="text" name="name" value="${book.name}" required/>
 
                                                 </div>
                                             </div>
@@ -66,8 +65,7 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <select name="category" required>
-                 
-                                                        <c:forEach items="${list}" var="i">
+                                                        <c:forEach items="${category}" var="i">
                                                             <c:if test="${i.category_id== book.category}" >
                                                                 <option selected="" value="${i.category_id}">${i.category_name}</option>
                                                             </c:if>
@@ -140,7 +138,7 @@
                                                                                         </div>-->
 <!--                                            <input  name="avt" type="hidden" value="${user.avt}"/>-->
                                         </div>
-                                        <input style="width: 20%" href="UpdateUser?id=${user.username}" type="submit" class="btn btn-primary" value="Add Book"></input>
+                                        <input style="width: 20%" href="UpdateUser?id=${user.username}" type="submit" class="btn btn-primary" value="Update Book"></input>
                                     </form>
 
                                 </div>

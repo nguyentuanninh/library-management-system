@@ -79,7 +79,7 @@ Go
 INSERT INTO dbo.book(id,[name],img, author,category, publisher,language,total,[current],position)
 VALUES
  (10001,'Code: The Hidden Language of Computer Hardware and Software','img/book/book1.jpg','Charles Petzold',1,'Microsoft Press; 1st edition (October 11, 2000)','english',3,3,'F34' )
-,(10002,'The Self-Taught Computer Scientist ','img/book/book2.jpg','Cory Althoff ',1,': ‎ Wiley; 1st edition (October 1, 2021)','english',3,3,'F36' )
+,(10002,'The Self-Taught Computer Scientist ','img/book/book2.jpg','Cory Althoff ',1,'Wiley; 1st edition (October 1, 2021)','english',3,3,'F36' )
 ,(10003,'The Chip : How Two Americans Invented the Microchip and Launched a Revolution','img/book/book3.jpg','T. R. Reid',1,'Random House Trade Paperbacks; Revised edition (October 9, 2001)','english',3,3,'F35' )
 ,(10004,'The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies','img/book/book4.jpg','Erik Brynjolfsson',1,N'giáo dục','english',3,3,'A37' )
 ,(10005,'The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution','img/book/book5.jpg','Walter Isaacson',1,'Walter Isaacson','english',3,3,'E12' )

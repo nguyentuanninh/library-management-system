@@ -21,20 +21,26 @@ import java.util.Map;
  *
  * @author MSII
  */
-public class ListBook extends HttpServlet {
+public class SearchBook extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    this.doPost(req, resp);}
+    
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                HttpSession session = req.getSession();
         if (session.getAttribute("username") == null) {
             resp.sendRedirect("Login");
             return;
         }
-
+        String name= req.getParameter("name");
+        
         CategoryDAO cDAO= new CategoryDAO();
         Map<Integer, Category> mapCategory= cDAO.getMapCategory();
         BookDAO bDAO= new BookDAO();
-        ArrayList<Book> listAllBook= bDAO.getAllBook();
+        ArrayList<Book> listAllBook= bDAO.getBookByName(name);
         int total=listAllBook.size();
         int bookPerPage= 5;
         int numberOfPage= (total%bookPerPage== 0)? (total/bookPerPage): (total/bookPerPage+ 1); //Số trang
@@ -53,10 +59,6 @@ public class ListBook extends HttpServlet {
         req.setAttribute("page", page);
         req.setAttribute("numberOfPage", numberOfPage);
         req.getRequestDispatcher("ListBook.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 
 }
