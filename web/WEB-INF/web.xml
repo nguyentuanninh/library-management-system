@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>UpdateBook</servlet-name>
+        <servlet-class>controller.UpdateBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateBook</servlet-name>
+        <url-pattern>/UpdateBook</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <servlet-name>CreateBook</servlet-name>
+        <servlet-class>controller.CreateBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateBook</servlet-name>
+        <url-pattern>/CreateBook</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <servlet-name>ViewBook</servlet-name>
+        <servlet-class>controller.ViewBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewBook</servlet-name>
+        <url-pattern>/ViewBook</url-pattern>
+    </servlet-mapping> 
+    
+    <servlet>
         <servlet-name>ResetPassword</servlet-name>
         <servlet-class>controller.ResetPassword</servlet-class>
     </servlet>

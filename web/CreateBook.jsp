@@ -26,110 +26,116 @@
                 <main>
                     <section>
                         <div class="container py-5">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="card mb-4">
-                                        <div class="card-body text-center">
-                                            <img src="${user.avt}"
-                                                 alt="avatar" class="rounded-circle img-fluid" style="width: 250px; height: 250px; object-fit: cover;">
-                                            <h5 class="my-3">${user.username}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <form action="UpdateUser" method="post" class="card mb-4">
-                                        <input type="hidden" name="username" value="${user.username}"/>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 ">
+                                    <p class="text-danger">${mess}</p>
+                                    <form action="CreateBook" method="post" class="card mb-4">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Name</p>
+                                                    <p class="mb-0">Book Id</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="name" value="${user.name}"/>
+                                                    <input type="number" name="bookid" value="${book.bookid}" required/>
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Gender</p>
+                                                    <p class="mb-0">Book Name</p>
                                                 </div>
                                                 <div class="col-sm-9">
-
-                                                    <c:if test="${user.sex}">
-                                                        <input class="form-check-input" type="radio" name="sex" value="true" id="flexRadioDefault1" checked>
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Male
-                                                        </label>
-                                                        <input class="form-check-input" type="radio" name="sex" value="false" id="flexRadioDefault2" >
-                                                        <label class="form-check-label" for="flexRadioDefault2">
-                                                            Female
-                                                        </label>
-                                                    </c:if>
-                                                    <c:if test="${!user.sex}">
-                                                        <input class="form-check-input" type="radio" name="sex" value="true" id="flexRadioDefault1" >
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Male
-                                                        </label>
-                                                        <input class="form-check-input" type="radio" name="sex" value="false" id="flexRadioDefault2" checked>
-                                                        <label class="form-check-label" for="flexRadioDefault2">
-                                                            Female
-                                                        </label>
-                                                    </c:if>
+                                                    <input type="text" name="name" value="${book.name}" required/>
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Date Birth</p>
+                                                    <p class="mb-0">Author</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input name="datebirth" type="date" value="${user.datebirth}" />
+                                                    <input  name="author" type="text" value="${book.author}" required/>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">category</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select name="category" required>
+                                                        <option selected>Select Category</option>
+                                                        <c:forEach items="${list}" var="i">
+                                                            <option value="${i.category_id}">${i.category_name}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Publisher</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input  name="publisher" type="text" value="${book.publisher}"required />
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Password</p>
+                                                    <p class="mb-0">Language</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input  name="password" type="text" value="${user.password}" />
+                                                    <input  name="language" type="text" value="${book.language}"required />
+
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Email</p>
+                                                    <p class="mb-0">Total quantity</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input  name="gmail" type="email" value="${user.gmail}" />
+                                                    <input  name="total" type="number" value="${book.total}"required />
+
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Phone</p>
+                                                    <p class="mb-0">Current quantity</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input  name="phone" type="text" value="${user.phone}" />
+                                                    <input  name="current" type="number" value="${book.current}"required />
 
                                                 </div>
                                             </div>
-<!--                                                    <hr>
+                                            <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Change Image Profile</p>
+                                                    <p class="mb-0">Position</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input  name="avt" type="file" value="${user.avt}"/>
+                                                    <input  name="position" type="text" value="${book.position}" required/>
 
                                                 </div>
-                                            </div>-->
-                                            <input  name="avt" type="hidden" value="${user.avt}"/>
+                                            </div>
+                                            <!--                                                    <hr>
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-3">
+                                                                                                <p class="mb-0">Change Image Profile</p>
+                                                                                            </div>
+                                                                                            <div class="col-sm-9">
+                                                                                                <input  name="avt" type="file" value="${user.avt}"/>
+                                            
+                                                                                            </div>
+                                                                                        </div>-->
+<!--                                            <input  name="avt" type="hidden" value="${user.avt}"/>-->
                                         </div>
-                                            <input style="width: 20%" href="UpdateUser?id=${user.username}" type="submit" class="btn btn-primary" value="Update Profile"></input>
+                                        <input style="width: 20%" href="UpdateUser?id=${user.username}" type="submit" class="btn btn-primary" value="Add Book"></input>
                                     </form>
 
                                 </div>

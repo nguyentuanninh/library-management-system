@@ -17,7 +17,7 @@
 
     </head>
 
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" style="overflow-x: hidden">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="HomePageAdmin">Library Manager</a>

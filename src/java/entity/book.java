@@ -9,6 +9,7 @@ package entity;
  * @author Nguyen Minh
  */
 public class Book {
+
     private int bookid;
     private String name;
     private String author;
@@ -28,6 +29,19 @@ public class Book {
         this.name = name;
         this.author = author;
         this.img = img;
+        this.category = category;
+        this.publisher = publisher;
+        this.language = language;
+        this.total = total;
+        this.current = current;
+        this.position = position;
+    }
+
+    public Book(int bookid, String name, String author, int category, String publisher, String language, int total, int current, String position) {
+        this.bookid = bookid;
+        this.name = name;
+        this.author = author;
+        this.img = "img/book/book.jpg";
         this.category = category;
         this.publisher = publisher;
         this.language = language;
@@ -116,5 +130,4 @@ public class Book {
         this.position = position;
     }
 
-    
 }

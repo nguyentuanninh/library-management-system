@@ -1,4 +1,4 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,32 +24,46 @@
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your Name" name="name" required/>
+                                                        <input value="${user.name}" class="form-control" id="inputFirstName" type="text" placeholder="Enter your Name" name="name" required/>
                                                         <label for="inputFirstName">Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     Gender <br/>
-                                                    <input class="form-check-input" type="radio" name="gender" value="1" id="flexRadioDefault1" >
-                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                        Male
-                                                    </label>
-                                                    <input class="form-check-input" type="radio" name="gender" value="0" id="flexRadioDefault2" checked>
-                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                        Female
-                                                    </label>
+                                                    <c:if test="${user.sex}">
+                                                        <input class="form-check-input" type="radio" name="sex" value="true" id="flexRadioDefault1" checked/>
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Male
+                                                        </label>
+                                                        <input class="form-check-input" type="radio" name="sex" value="false" id="flexRadioDefault2" />
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            Female
+                                                        </label>
+                                                    </c:if>
+                                                    <c:if test="${!user.sex}">
+                                                        <input class="form-check-input" type="radio" name="sex" value="true" id="flexRadioDefault1" />
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Male
+                                                        </label>
+                                                        <input class="form-check-input" type="radio" name="sex" value="false" id="flexRadioDefault2"checked />
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            Female
+                                                        </label>
+                                                    </c:if>
+
+
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" name="phone" type="text" placeholder="Create a password" />
+                                                        <input value="${user.phone}" class="form-control" id="inputPassword" name="phone" type="text" placeholder="Create a password" />
                                                         <label for="inputPassword">Phone</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" name="gmail" type="email" placeholder="Confirm password" />
+                                                        <input value="${user.gmail}" class="form-control" id="inputPasswordConfirm" name="gmail" type="email" placeholder="Confirm password" />
                                                         <label for="inputPasswordConfirm">Email</label>
                                                     </div>
                                                 </div>
@@ -57,13 +71,13 @@
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputEmail" type="text" name="username" placeholder="name@example.com" required/>
+                                                        <input value="${user.username}" class="form-control" id="inputEmail" type="text" name="username" placeholder="name@example.com" required/>
                                                         <label for="inputEmail">Username</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" name="datebirth" type="date" placeholder="datebirth" />
+                                                        <input value="${user.datebirth}" class="form-control" id="inputPasswordConfirm" name="datebirth" type="date" placeholder="datebirth" />
                                                         <label for="inputPasswordConfirm">Date Birth</label>
                                                     </div>
                                                 </div>

@@ -32,14 +32,15 @@ newUser.setPhone("1234567890");
 newUser.setGmail("johndoe@gmail.com");
 //userDao.insertUser(newUser);
 
-User user1= userDao.findUserByUsername("user1");
-user1.setPassword("1232");
-userDao.updateUser(user1);
-
+//User user1= userDao.findUserByUsername("user1");
+//user1.setPassword("1232");
+//userDao.updateUser(user1);
+//
     ArrayList<User> list= userDao.getAllUser();
     for(User user: list){
         System.out.println(user.getName()+" "+ user.getAvt()+" "+ user.getPassword());
     }
+
 
     }
 }

@@ -26,13 +26,14 @@ public class UpdateUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         String username = request.getParameter("username");
+        String password= request.getParameter("password");
         String avt = request.getParameter("avt");
         String name = request.getParameter("name");
         boolean sex = Boolean.parseBoolean(request.getParameter("sex"));
         String datebirth = request.getParameter("datebirth");
         String phone = request.getParameter("phone");
         String gmail = request.getParameter("gmail");
-        User user= new User(username, phone, sex, name, avt, sex, datebirth, phone, gmail);
+        User user= new User(username, password, name, avt, sex, datebirth, phone, gmail);
         UserDAO uDAO= new UserDAO();
 
         uDAO.updateUser(user);

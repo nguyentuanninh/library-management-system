@@ -22,11 +22,11 @@ public class ListUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
-//            resp.sendRedirect("Login");
-//            return;
-//        }
+        HttpSession session = req.getSession();
+        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
+            resp.sendRedirect("Login");
+            return;
+        }
         UserDAO uDAO = new UserDAO();
         ArrayList<User> list = uDAO.getAllUser();
         req.setAttribute("listUser", list);

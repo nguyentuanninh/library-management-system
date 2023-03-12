@@ -13,7 +13,7 @@
         
     </head>
 
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" style="overflow-x: hidden">
         <%@include file="./Navbar.jsp"  %>
 
         <div id="layoutSidenav">

@@ -20,6 +20,14 @@ public class BookDAO {
     Connection con = null;
     PreparedStatement pt = null;
     ResultSet rs = null;
+    
+    public ArrayList<Book> getListBookByPage(ArrayList<Book> list, int start, int end){
+        ArrayList<Book> arr= new ArrayList<>();
+        for(int i= start; i< end; ++i){
+            arr.add(list.get(i));
+        }
+        return arr;
+    }
 
     public ArrayList<Book> getAllBook() {
         ArrayList<Book> list = new ArrayList<>();
@@ -113,13 +121,11 @@ public class BookDAO {
         }
     }
 
-    public boolean insertbook(Book book) {
+    public void insertbook(Book book) {
         DBContext db = new DBContext();
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO "
-                    + "book (id, name, img, author, category, publisher, language, total, current, position) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO book (id, [name], img, author, category, publisher, [language], total, [current], position) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pt = con.prepareStatement(sql);
             pt.setInt(1, book.getBookid());
             pt.setString(2, book.getName());
@@ -134,23 +140,25 @@ public class BookDAO {
             pt.executeUpdate();
             con.close();
             pt.close();
-            return true;
+
         } catch (Exception e) {
-            return false;
+            System.out.println(e.getMessage());
         }
     }
 
-    public void deleteBook(Book book) {
+    public boolean deleteBook(String id) {
         DBContext db = new DBContext();
         try {
             con = db.getConnection();
             pt = con.prepareStatement("DELETE FROM book WHERE id=?");
-            pt.setInt(1, book.getBookid());
+            pt.setString(1, id);
             pt.executeUpdate();
             con.close();
             pt.close();
+            return true;
         } catch (Exception e) {
-
+            return false;
+           
         }
     }
 }

@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author MSII
  */
-public class CreateUser extends HttpServlet{
+public class CreateUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,26 +26,17 @@ public class CreateUser extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         String username = request.getParameter("username");
-        UserDAO udao= new UserDAO();
-        User u= udao.findUserByUsername(username);
-        if(u!= null){
-            request.setAttribute("message", "*Username really exit");
-            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
-            return;
-        }
+        UserDAO udao = new UserDAO();
+        User u = udao.findUserByUsername(username);
+
         String password = request.getParameter("password");
         String passwordConfirm = request.getParameter("passwordConfirm");
-        if (!password.equals(passwordConfirm)) {
-            request.setAttribute("message", "*Password don't match passwordConfirm");
-            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
-            return;
-        }
+
         String name = request.getParameter("name");
         boolean sex = Boolean.parseBoolean(request.getParameter("sex"));
         String datebirth = request.getParameter("datebirth");
         String phone = request.getParameter("phone");
         String gmail = request.getParameter("gmail");
-
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -54,11 +45,27 @@ public class CreateUser extends HttpServlet{
         user.setDatebirth(datebirth);
         user.setPhone(phone);
         user.setGmail(gmail);
+        user.setRole(false);
+
+        if (!password.equals(passwordConfirm)) {
+            request.setAttribute("message", "*Password don't match passwordConfirm");
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
+            return;
+        }
+        if (u != null) {
+            request.setAttribute("message", "*Username really exit");
+            System.out.println(user.isSex());
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("CreateUser.jsp").forward(request, resp);
+            return;
+        }
         
+
         udao.insertUser(user);
-        
+
         //validate session then login again
         resp.sendRedirect("ListUser");
-     
+
     }
 }

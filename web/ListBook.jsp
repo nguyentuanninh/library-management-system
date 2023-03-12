@@ -1,4 +1,6 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,99 +11,122 @@
         <title>Admin Page</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="./style/styles.css" rel="stylesheet" />
+        <link href="./style/userStyle.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
     </head>
 
-    <body class="sb-nav-fixed">
-        <%@include file="./Navbar.jsp"  %>
+    <body class="sb-nav-fixed" style="overflow-x: hidden">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="HomePageAdmin">Library Manager</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
+            <div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <a href="CreateBook" type="button" class="btn btn-primary">Add Book</a>
+            </div>
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="Logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
         <div id="layoutSidenav">
 
             <!-- Sidebar  -->
-                <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="HomePageAdmin">Library Manager</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-                
-        <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-            <a href="CreateUser" type="button" class="btn btn-primary">Create Account</a>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="Logout">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+            <%@include file="./SidebarAdmin.jsp" %>
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-box clearfix ">
+                                <div class="table-responsive">
+                                    <table class="table user-list">
+
+                                        <thead>
+                                            <tr>
+                                                <th><span>ID</span></th>
+                                                <th class="text-center"><span>Book</span></th>
+                                                <th><span>Image</span></th>
+                                                <th><span>Author</span></th>
+                                                <th><span>Category</span></th>
+                                                <th><span>Language</span></th>
+                                                <th><span>Total</span></th>
+                                                <th><span>Current</span></th>
+                                                <th><span>Position</span></th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${requestScope.listBook}" var="i">
+                                                <tr>
+                                                    <td>${i.bookid}</td>
+
+                                                    <td>
+                                                        <p>${i.name}<p>
+                                                    </td>
+
+                                                    <td><img src="${i.img}" alt="${i.bookid}"></td>
+
+                                                    <td>
+                                                        ${i.author}
+                                                    </td>
+
+                                                    <td>
+                                                        ${mapCategory.get(i.category).category_name}
+                                                    </td>
+                                                    <td>
+                                                        ${i.language}
+                                                    </td>
+                                                    <td>
+                                                        ${i.total}
+                                                    </td>
+                                                    <td>
+                                                        ${i.current}
+                                                    </td>
+                                                    <td>
+                                                        ${i.position}
+                                                    </td>
+                                                    <td>
+                                                        <a href="ViewBook?id=${i.bookid}" class="table-link" style="text-decoration: none;" title="View Book Detail">
+                                                            <span class="fa-stack">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </span>
+                                                        </a>
+              
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
+
+                            <nav class="me-3">
+                                <ul class="pagination pagination-sm justify-content-end">
+                                    <c:forEach begin="1" end="${numberOfPage}" var="i">
+                                        <c:if test="${i== page}">
+                                            <li class="page-item active" aria-current="page">
+                                                <a class="page-link" href="ListBook?page=${i}">${i}</a>
+                                            </li>
+                                        </c:if>
+                                        <c:if test="${i!= page}">
+                                            <li class="page-item"><a class="page-link" href="ListBook?page=${i}">${i}</a></li>
+                                            </c:if>
+
+                                    </c:forEach>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </main>
@@ -110,20 +135,20 @@
                 <%@include file="./Footer.jsp"%>
             </div>
         </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script>
-            window.addEventListener('DOMContentLoaded', event => {
-                const sidebarToggle = document.body.querySelector('#sidebarToggle');
-                if (sidebarToggle) {
-                    sidebarToggle.addEventListener('click', event => {
-                        event.preventDefault();
-                        document.body.classList.toggle('sb-sidenav-toggled');
-                        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-                    });
-                }
+                                                               window.addEventListener('DOMContentLoaded', event => {
+                                                                   const sidebarToggle = document.body.querySelector('#sidebarToggle');
+                                                                   if (sidebarToggle) {
+                                                                       sidebarToggle.addEventListener('click', event => {
+                                                                           event.preventDefault();
+                                                                           document.body.classList.toggle('sb-sidenav-toggled');
+                                                                           localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+                                                                       });
+                                                                   }
 
-            });
+                                                               });
         </script>
 
     </body>

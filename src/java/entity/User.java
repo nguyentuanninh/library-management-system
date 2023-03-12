@@ -35,6 +35,17 @@ public class User {
         this.phone = phone;
         this.gmail = gmail;
     }
+    public User(String username, String password, String name, String avt, boolean sex, String datebirth, String phone, String gmail) {
+        this.username = username;
+        this.password = password;
+        this.role = false;
+        this.name = name;
+        this.avt = avt;
+        this.sex = sex;
+        this.datebirth = datebirth;
+        this.phone = phone;
+        this.gmail = gmail;
+    }
 
 
     public String getUsername() {

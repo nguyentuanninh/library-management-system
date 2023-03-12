@@ -29,20 +29,10 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         String username = request.getParameter("username");
-        UserDAO udao= new UserDAO();
-        User u= udao.findUserByUsername(username);
-        if(u!= null){
-            request.setAttribute("message", "*Username really exit");
-            request.getRequestDispatcher("Register.jsp").forward(request, resp);
-            return;
-        }
+        UserDAO udao = new UserDAO();
+        User u = udao.findUserByUsername(username);
         String password = request.getParameter("password");
         String passwordConfirm = request.getParameter("passwordConfirm");
-        if (!password.equals(passwordConfirm)) {
-            request.setAttribute("message", "*Password don't match passwordConfirm");
-            request.getRequestDispatcher("Register.jsp").forward(request, resp);
-            return;
-        }
         String name = request.getParameter("name");
         boolean sex = Boolean.parseBoolean(request.getParameter("sex"));
         String datebirth = request.getParameter("datebirth");
@@ -50,6 +40,7 @@ public class Register extends HttpServlet {
         String gmail = request.getParameter("gmail");
 
         User user = new User();
+        user.setRole(false);
         user.setUsername(username);
         user.setPassword(password);
         user.setName(name);
@@ -57,11 +48,24 @@ public class Register extends HttpServlet {
         user.setDatebirth(datebirth);
         user.setPhone(phone);
         user.setGmail(gmail);
-        
+        if (u != null) {
+            request.setAttribute("message", "*Username really exit");
+            request.setAttribute("user", user);
+            System.out.println(user.isSex());
+            request.getRequestDispatcher("Register.jsp").forward(request, resp);
+            return;
+        }
+        if (!password.equals(passwordConfirm)) {
+            request.setAttribute("message", "*Password don't match passwordConfirm");
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("Register.jsp").forward(request, resp);
+            return;
+        }
+
         udao.insertUser(user);
-        
+
         //validate session then login again
-        HttpSession session= request.getSession();
+        HttpSession session = request.getSession();
         session.invalidate();
         request.setAttribute("messagRegister", "Register susscessfully, please Login");
         request.getRequestDispatcher("Login.jsp").forward(request, resp);
