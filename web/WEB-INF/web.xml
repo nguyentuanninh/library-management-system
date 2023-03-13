@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>SearchBorrower</servlet-name>
+        <servlet-class>controller.SearchBorrower</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchBorrower</servlet-name>
+        <url-pattern>/SearchBorrower</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CompleteBorrower</servlet-name>
+        <servlet-class>controller.CompleteBorrower</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompleteBorrower</servlet-name>
+        <url-pattern>/CompleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteBorrower</servlet-name>
+        <servlet-class>controller.DeleteBorrower</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBorrower</servlet-name>
+        <url-pattern>/DeleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReturnBorrower</servlet-name>
+        <servlet-class>controller.ReturnBorrower</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReturnBorrower</servlet-name>
+        <url-pattern>/ReturnBorrower</url-pattern>
+    </servlet-mapping>
+        
+    <servlet>
+        <servlet-name>ListBorrowAdmin</servlet-name>
+        <servlet-class>controller.ListBorrowAdmin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListBorrowAdmin</servlet-name>
+        <url-pattern>/ListBorrowAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SearchBook</servlet-name>
         <servlet-class>controller.SearchBook</servlet-class>
     </servlet>

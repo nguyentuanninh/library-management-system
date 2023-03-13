@@ -5,8 +5,10 @@
 package dbConnect;
 
 import DAO.BookDAO;
+import DAO.BorrowerDAO;
 import DAO.UserDAO;
 import entity.Book;
+import entity.Borrower;
 import entity.User;
 import java.sql.Connection;
 import java.sql.Date;
@@ -36,11 +38,15 @@ newUser.setGmail("johndoe@gmail.com");
 //user1.setPassword("1232");
 //userDao.updateUser(user1);
 //
-    ArrayList<User> list= userDao.getAllUser();
-    for(User user: list){
-        System.out.println(user.getName()+" "+ user.getAvt()+" "+ user.getPassword());
-    }
-
+//    ArrayList<User> list= userDao.getAllUser();
+//    for(User user: list){
+//        System.out.println(user.getName()+" "+ user.getAvt()+" "+ user.getPassword());
+//    }
+        BorrowerDAO bDAO= new BorrowerDAO();
+     ArrayList<Borrower> list= bDAO.getBorrowerByStatusAndUserId("returned", "user1");
+     for(Borrower b: list){
+         System.out.println(b.getBookid());
+     }
 
     }
 }

@@ -31,7 +31,7 @@
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <p style="color: red">${message}</p>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
 <!--                                                <a class="small" href="password.html">Forgot Password?</a>-->
                                                     <input class="btn btn-primary" type="submit" value="Login"/>
                                             </div>

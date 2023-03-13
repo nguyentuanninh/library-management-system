@@ -8,6 +8,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 body{margin-top:20px;}
+.is-hidden {
+    display: none;
+}
 
 
 /* USER LIST TABLE */

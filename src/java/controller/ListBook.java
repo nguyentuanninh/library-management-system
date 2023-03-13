@@ -33,6 +33,7 @@ public class ListBook extends HttpServlet {
 
         CategoryDAO cDAO= new CategoryDAO();
         Map<Integer, Category> mapCategory= cDAO.getMapCategory();
+        
         BookDAO bDAO= new BookDAO();
         ArrayList<Book> listAllBook= bDAO.getAllBook();
         int total=listAllBook.size();

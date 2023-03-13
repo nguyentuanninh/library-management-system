@@ -56,7 +56,6 @@ CREATE TABLE borrower(
 	form DATE,
 	[to] DATE,
 	[status] NVARCHAR(20),
-	
 )
 
 CREATE TABLE feedback(
@@ -116,9 +115,9 @@ INSERT INTO dbo.[USER](username,password,role,name,avt,sex,datebirth,phone,gmail
 ---------------------------------------------------
 GO
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user1',10001,'2023-3-9','2023-3-24','Borrowed');
-INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user1',10002,'2023-3-9','2023-3-24','Borrowed');
+INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user1',10002,'2023-2-9','2023-2-24','Borrowed');
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user2',10013,'2023-3-9','2023-3-24','Borrowed');
-INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user2',10019,'2023-3-9','2023-3-24','Borrowed');
+INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user2',10019,'2023-2-9','2023-2-24','Borrowed');
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user3',10001,'2023-3-9','2023-3-24','Borrowed');
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user4',10004,'2023-3-9','2023-3-24','Borrowed');
 INSERT INTO dbo.borrower(username,book_id,form,[to],status)VALUES('user4',10006,'2023-3-9','2023-3-24','Borrowed');

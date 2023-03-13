@@ -9,39 +9,50 @@ package entity;
  * @author Nguyen Minh
  */
 public class Borrower {
-    private String id;
+    private int id;
     private String username;
     private int bookid;
     private String borrow_from;
     private String borrow_to;
     private String status;
-
+    private boolean late;
+    
     public Borrower() {
     }
 
-    public Borrower(String id, String username, int bookid, String borrow_from, String borrow_to, String status) {
+    public Borrower(int id, String username, int bookid, String borrow_from, String borrow_to, String status) {
         this.id = id;
         this.username = username;
         this.bookid = bookid;
         this.borrow_from = borrow_from;
         this.borrow_to = borrow_to;
         this.status = status;
+        this.late= false;
     }
     
-    public Borrower(String id, String username, int bookid, String status){
+    public Borrower(int id, String username, int bookid, String status){
         this.id = id;
         this.username = username;
         this.bookid = bookid;
         this.borrow_from = null;
         this.borrow_to = null;
         this.status = status;
+        this.late= false;
     }
 
-    public String getId() {
+    public boolean isLate() {
+        return late;
+    }
+
+    public void setLate(boolean late) {
+        this.late = late;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

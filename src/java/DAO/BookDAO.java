@@ -20,10 +20,10 @@ public class BookDAO {
     Connection con = null;
     PreparedStatement pt = null;
     ResultSet rs = null;
-    
-    public ArrayList<Book> getListBookByPage(ArrayList<Book> list, int start, int end){
-        ArrayList<Book> arr= new ArrayList<>();
-        for(int i= start; i< end; ++i){
+
+    public ArrayList<Book> getListBookByPage(ArrayList<Book> list, int start, int end) {
+        ArrayList<Book> arr = new ArrayList<>();
+        for (int i = start; i < end; ++i) {
             arr.add(list.get(i));
         }
         return arr;
@@ -56,9 +56,9 @@ public class BookDAO {
         return null;
     }
     
-        public ArrayList<Book> getBookByName(String name) {
+    public ArrayList<Book> getBookByName(String name) {
         ArrayList<Book> list = new ArrayList<>();
-        String sql = "select * from book where [name] like '%"+name+"%'";
+        String sql = "select * from book where [name] like '%" + name + "%'";
         DBContext db = new DBContext();
         try {
             con = db.getConnection();
@@ -186,7 +186,7 @@ public class BookDAO {
             return true;
         } catch (Exception e) {
             return false;
-           
+
         }
     }
 }
