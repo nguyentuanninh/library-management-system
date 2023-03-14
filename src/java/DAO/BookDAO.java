@@ -91,7 +91,7 @@ public class BookDAO {
             pt = con.prepareStatement(sql);
             pt.setInt(1, id);
             Book book = null;
-            ResultSet rs = pt.executeQuery();
+            rs = pt.executeQuery();
             if (rs.next()) {
                 book = new Book(
                         rs.getInt("id"),
