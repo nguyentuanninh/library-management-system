@@ -30,6 +30,7 @@ public class ListBorrowAdmin extends HttpServlet {
         String action = req.getParameter("action");
         if(action== null || action.length() == 0){
             resp.sendRedirect("HomePageAdmin");
+            return;
         }
         BorrowerDAO bDAO= new BorrowerDAO();
         ArrayList<Borrower> listAll= bDAO.getBorrowerByStatus(action);
