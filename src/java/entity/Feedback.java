@@ -9,27 +9,17 @@ package entity;
  * @author Nguyen Minh
  */
 public class Feedback{
-    private int feedbackid;
     private String title;
-    private String feedback;
-    private String studentID;
+    private String connent;
+    private String username;
 
     public Feedback() {
     }
 
-    public Feedback(int feedbackid, String title, String feedback, String studentID) {
-        this.feedbackid = feedbackid;
+    public Feedback(String title, String connent, String username) {
         this.title = title;
-        this.feedback = feedback;
-        this.studentID = studentID;
-    }
-
-    public int getFeedbackid() {
-        return feedbackid;
-    }
-
-    public void setFeedbackid(int feedbackid) {
-        this.feedbackid = feedbackid;
+        this.connent = connent;
+        this.username = username;
     }
 
     public String getTitle() {
@@ -40,24 +30,23 @@ public class Feedback{
         this.title = title;
     }
 
-    public String getFeedback() {
-        return feedback;
+    public String getConnent() {
+        return connent;
     }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setConnent(String connent) {
+        this.connent = connent;
     }
 
-    public String getStudentID() {
-        return studentID;
+    public String getUsername() {
+        return username;
     }
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
-    @Override
-    public String toString() {
-        return "Feedback{" + "feedbackid=" + feedbackid + ", title=" + title + ", feedback=" + feedback + ", studentID=" + studentID + '}';
-    }
- 
+
+    
+    
 }
 

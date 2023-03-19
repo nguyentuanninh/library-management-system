@@ -2,6 +2,44 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ListProcessingUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/HomePageAdmin.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/Borrower.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/HomePageUser.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/WEB-INF/web.xml</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ActionSendFeedback.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/BorrowerDAO.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ListBorrowUser.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/UserDAO.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/HomePageUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/Navbar.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ListBook.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/dbConnect/TestConnection.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ListBook.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/SearchBorrower.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/DAO/BookDAO.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/Book.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/HomePageAdmin.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ListUser.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ErrorPage.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/Feedback.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/CompleteBorrower.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/SidebarUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ViewBook.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ListBorrowAdmin.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ListBorrowedAdmin.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/CreateBook.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/ActionBorrow.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/SidebarAdmin.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ListBorrowedUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/ListReturnedUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/SearchBookAdmin.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/SearchBook.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/web/SearchBookUser.jsp</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/Login.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/controller/CreateUser.java</file>
+            <file>file:/D:/learn/term_4/PRJ301/Examples/LibrariManagement/src/java/entity/Category.java</file>
+        </group>
     </open-files>
 </project-private>

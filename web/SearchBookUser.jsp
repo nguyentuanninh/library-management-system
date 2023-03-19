@@ -24,7 +24,7 @@
             <form method="post" action="SearchBook" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input type="hidden" name="action" value="${action}"/>
-                    <input name="name" class="form-control" type="text" placeholder="Search book..." aria-label="Search for..."
+                    <input name="name" value="${name}" class="form-control" type="text" placeholder="Search book..." aria-label="Search for..."
                            aria-describedby="btnNavbarSearch" />
 
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
@@ -70,7 +70,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 col-lg-8 col-xl-8">
-                                                    <h5 class="text-primary">${i.name}</h5>
+                                                    <a href="#" style="text-decoration: none"><h5>${i.name}</h5></a>
                                                     <div class="d-flex flex-column flex-md-row">
                                                         <div class="col-md-6 col-lg-6 ">
                                                             <div class="d-flex flex-row">
@@ -118,17 +118,17 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        <c:if test="${numberOfPage >1}">
+                         <c:if test="${numberOfPage >1}">
                             <nav class="me-3">
                                 <ul class="pagination pagination-sm justify-content-end">
                                     <c:forEach begin="1" end="${numberOfPage}" var="i">
                                         <c:if test="${i== page}">
                                             <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="HomePageUser?view=${view}&page=${i}">${i}</a>
+                                                <a class="page-link" href="SearchBook?name=${name}&page=${i}">${i}</a>
                                             </li>
                                         </c:if>
                                         <c:if test="${i!= page}">
-                                            <li class="page-item"><a class="page-link" href="HomePageUser?view=${view}&page=${i}">${i}</a></li>
+                                            <li class="page-item"><a class="page-link" href="SearchBook?name=${name}&page=${i}">${i}</a></li>
                                             </c:if>
 
                                     </c:forEach>

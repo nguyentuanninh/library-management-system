@@ -27,9 +27,9 @@
             <form method="post" action="SearchBorrower" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">      
                 <div class="input-group">
                     <input type="hidden" name="action" value="${action}"/>
-                    <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search name of book..." aria-label="Search for..."
+                    <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search username..." aria-label="Search for..."
                            aria-describedby="btnNavbarSearch" />
-                    
+
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
                             class="fas fa-search"></i></button> 
                 </div>
@@ -91,7 +91,7 @@
                                                                 <i class="fa-solid fa-square-check"></i>
                                                             </span>
                                                         </a>
-                                                            <a href="DeleteOrder?id=${i.id}" class="table-link danger" style="text-decoration: none;" 
+                                                        <a href="DeleteOrder?id=${i.id}" class="table-link danger" style="text-decoration: none;" 
                                                            title="Canncel Order" onclick="return confirm('Are you sure cancel order: ${i.id}?');">
                                                             <span class="fa-stack">
                                                                 <i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
@@ -105,22 +105,23 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <nav class="me-3">
-                                <ul class="pagination pagination-sm justify-content-end">
-                                    <c:forEach begin="1" end="${numberOfPage}" var="i">
-                                        <c:if test="${i== page}">
-                                            <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="ListBorrowAdmin?action=processingpage=${i}">${i}</a>
-                                            </li>
-                                        </c:if>
-                                        <c:if test="${i!= page}">
-                                            <li class="page-item"><a class="page-link" href="ListBorrowAdmin?action=processing&page=${i}">${i}</a></li>
+                           <c:if test="${numberOfPage >1}">
+                                <nav class="me-3">
+                                    <ul class="pagination pagination-sm justify-content-end">
+                                        <c:forEach begin="1" end="${numberOfPage}" var="i">
+                                            <c:if test="${i== page}">
+                                                <li class="page-item active" aria-current="page">
+                                                    <a class="page-link" href="ListBorrowAdmin?action=processing&page=${i}">${i}</a>
+                                                </li>
                                             </c:if>
+                                            <c:if test="${i!= page}">
+                                                <li class="page-item"><a class="page-link" href="ListBorrowAdmin?action=processing&page=${i}">${i}</a></li>
+                                                </c:if>
 
-                                    </c:forEach>
-                                </ul>
-                            </nav>
+                                        </c:forEach>
+                                    </ul>
+                                </nav>
+                            </c:if>
                         </div>
                     </div>
                 </main>
@@ -132,17 +133,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script>
-            window.addEventListener('DOMContentLoaded', event => {
-                const sidebarToggle = document.body.querySelector('#sidebarToggle');
-                if (sidebarToggle) {
-                    sidebarToggle.addEventListener('click', event => {
-                        event.preventDefault();
-                        document.body.classList.toggle('sb-sidenav-toggled');
-                        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-                    });
-                }
+                                                               window.addEventListener('DOMContentLoaded', event => {
+                                                                   const sidebarToggle = document.body.querySelector('#sidebarToggle');
+                                                                   if (sidebarToggle) {
+                                                                       sidebarToggle.addEventListener('click', event => {
+                                                                           event.preventDefault();
+                                                                           document.body.classList.toggle('sb-sidenav-toggled');
+                                                                           localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+                                                                       });
+                                                                   }
 
-            });
+                                                               });
         </script>
 
     </body>

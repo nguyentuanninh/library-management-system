@@ -24,10 +24,9 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
-            <form method="post" action="SearchBorrower" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form method="post" action="SearchBook" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input type="hidden" name="action" value="${action}"/>
-                    <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search username..." aria-label="Search for..."
+                    <input name="name" value="${name}" class="form-control" type="text" placeholder="Search name of book..." aria-label="Search for..."
                            aria-describedby="btnNavbarSearch" />
 
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
@@ -64,34 +63,55 @@
 
                                         <thead>
                                             <tr>
-                                                <th class="text-center"><span>ID</span></th>
-                                                <th class="text-center"><span>Username</span></th>
-                                                <th class="text-center"><span>Book Id</span></th>
-                                                <th class="text-center"><span>Status</span></th>
-                                                <th class="text-center"><span>Borrowed date</span></th>
-                                                <th class="text-center"><span>Return date</span></th>
+                                                <th><span>ID</span></th>
+                                                <th class="text-center"><span>Book</span></th>
+                                                <th><span>Image</span></th>
+                                                <th><span>Author</span></th>
+                                                <th><span>Category</span></th>
+                                                <th><span>Language</span></th>
+                                                <th><span>Total</span></th>
+                                                <th><span>Current</span></th>
+                                                <th><span>Position</span></th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${requestScope.list}" var="i">
+                                            <c:forEach items="${requestScope.listBook}" var="i">
                                                 <tr>
-                                                    <td class="text-center">${i.id}</td>
+                                                    <td>${i.bookid}</td>
 
-                                                    <td class="text-center">
-                                                        <p>${i.username}<p>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        ${i.bookid}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="text-primary">${i.status}</span>
+                                                    <td>
+                                                        <p>${i.name}<p>
                                                     </td>
 
-                                                    <td class="text-center">
-                                                        ${i.borrow_from}
+                                                    <td><img src="${i.img}" alt="${i.bookid}"></td>
+
+                                                    <td>
+                                                        ${i.author}
                                                     </td>
-                                                    <td class="text-center">
-                                                        ${i.borrow_to}
+
+                                                    <td>
+                                                        ${mapCategory.get(i.category).category_name}
+                                                    </td>
+                                                    <td>
+                                                        ${i.language}
+                                                    </td>
+                                                    <td>
+                                                        ${i.total}
+                                                    </td>
+                                                    <td>
+                                                        ${i.current}
+                                                    </td>
+                                                    <td>
+                                                        ${i.position}
+                                                    </td>
+                                                    <td>
+                                                        <a href="ViewBook?id=${i.bookid}" class="table-link" style="text-decoration: none;" title="View Book Detail">
+                                                            <span class="fa-stack">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </span>
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -101,16 +121,16 @@
                                 </div>
                             </div>
                              <c:if test="${numberOfPage >1}">
-                                <nav class="me-3 ">
+                                <nav class="me-3">
                                     <ul class="pagination pagination-sm justify-content-end">
                                         <c:forEach begin="1" end="${numberOfPage}" var="i">
                                             <c:if test="${i== page}">
                                                 <li class="page-item active" aria-current="page">
-                                                    <a class="page-link" href="ListBorrowAdmin?action=returned&page=${i}">${i}</a>
+                                                    <a class="page-link" href="SearchBook?name=${name}&page=${i}">${i}</a>
                                                 </li>
                                             </c:if>
                                             <c:if test="${i!= page}">
-                                                <li class="page-item"><a class="page-link" href="ListBorrowAdmin?action=returned&page=${i}">${i}</a></li>
+                                                <li class="page-item"><a class="page-link" href="SearchBook?name=${name}&page=${i}">${i}</a></li>
                                                 </c:if>
 
                                         </c:forEach>

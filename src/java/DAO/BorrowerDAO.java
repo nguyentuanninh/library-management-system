@@ -44,11 +44,47 @@ public class BorrowerDAO {
 
         }
     }
+    
+        public ArrayList<Borrower> getBorrowerByStatusAndUsername(String status, String username) {
+        DBContext db = new DBContext();
+        ArrayList<Borrower> list = new ArrayList<>();
+        String sql = "select * from borrower where status= ? and username=?";
+        try {
+            conn = db.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, status);
+            ps.setString(2, username);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Borrower b = new Borrower(rs.getInt(1), rs.getString(2),
+                        rs.getInt(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6));
+                if (!status.equals("processing")) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date date = dateFormat.parse(rs.getString(5));
+                    Date check = new Date();
+                    if (!date.after(check)) {
+                        b.setLate(true);
+                    }
+                }
+                list.add(b);
+            }
+            conn.close();
+            ps.close();
+            rs.close();
+            return list;
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return list;
+    }
+
 
     public ArrayList<Borrower> getBorrowerByStatus(String status) {
         DBContext db = new DBContext();
         ArrayList<Borrower> list = new ArrayList<>();
-        String sql = "select * from borrower where status= ?";
+        String sql = "select * from borrower where [status]= ?";
         try {
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
@@ -82,7 +118,7 @@ public class BorrowerDAO {
     public ArrayList<Borrower> getBorrowerByStatusAndUserId(String status, String username) {
         DBContext db = new DBContext();
         ArrayList<Borrower> list = new ArrayList<>();
-        String sql = "select * from borrower where status= ? and [username]= ?";
+        String sql = "select * from borrower where [status]= ? and [username]= ?";
         try {
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
@@ -139,6 +175,21 @@ public class BorrowerDAO {
             ps.setString(5, borrower.getStatus());
             ps.setInt(6, borrower.getId());
             ps.executeQuery();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void insertBorrower(String username, String bookid){
+        String sql= "insert into borrower (username, book_id, [status])\n" +
+                        "values (?, ?,'processing' )";
+        DBContext db= new DBContext();
+        try {
+            conn = db.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, bookid);
+             ps.executeQuery();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

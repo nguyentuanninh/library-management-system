@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -27,6 +29,33 @@ public class BookDAO {
             arr.add(list.get(i));
         }
         return arr;
+    }
+    
+    public Map<Integer, Book> getMapBook() {
+        Map<Integer, Book> list = new HashMap<>();
+        String sql = "select * from book";
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            pt = con.prepareStatement(sql);
+            rs = pt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book(
+                        rs.getInt(1), rs.getString(2),
+                        rs.getString(4), rs.getString(3),
+                        rs.getInt(5), rs.getString(6),
+                        rs.getString(7), rs.getInt(8),
+                        rs.getInt(9), rs.getString(10));
+                list.put(book.getBookid(), book);
+            }
+            con.close();
+            pt.close();
+            rs.close();
+            return list;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
     }
 
     public ArrayList<Book> getAllBook() {
@@ -59,6 +88,33 @@ public class BookDAO {
     public ArrayList<Book> getBookByName(String name) {
         ArrayList<Book> list = new ArrayList<>();
         String sql = "select * from book where [name] like '%" + name + "%'";
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            pt = con.prepareStatement(sql);
+            rs = pt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book(
+                        rs.getInt(1), rs.getString(2),
+                        rs.getString(4), rs.getString(3),
+                        rs.getInt(5), rs.getString(6),
+                        rs.getString(7), rs.getInt(8),
+                        rs.getInt(9), rs.getString(10));
+                list.add(book);
+            }
+            con.close();
+            pt.close();
+            rs.close();
+            return list;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+    
+        public ArrayList<Book> getBookByCategory(int cid) {
+        ArrayList<Book> list = new ArrayList<>();
+        String sql = "select * from book where category =" + cid;
         DBContext db = new DBContext();
         try {
             con = db.getConnection();

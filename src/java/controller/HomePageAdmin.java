@@ -6,9 +6,11 @@ package controller;
 
 import DAO.BookDAO;
 import DAO.BorrowerDAO;
+import DAO.CategoryDAO;
 import DAO.UserDAO;
 import entity.Book;
 import entity.Borrower;
+import entity.Category;
 import entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -22,29 +24,30 @@ import java.util.ArrayList;
  *
  * @author MSII
  */
-public class HomePageAdmin extends HttpServlet{
+public class HomePageAdmin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if (session.getAttribute("username") == null ||session.getAttribute("role")==null|| !session.getAttribute("role").equals("admin")) {
+        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("admin")) {
             resp.sendRedirect("Login");
             return;
         }
-        BookDAO bdao= new BookDAO();
-        ArrayList<Book> listBook= bdao.getAllBook();
-        req.setAttribute("numberBook", listBook.size());
         
-        UserDAO udao= new UserDAO();
-        ArrayList<User> listUser= udao.getAllUser();
-        req.setAttribute("numberUser", listUser.size());
-        
-        BorrowerDAO brdao= new BorrowerDAO();
-        ArrayList<Borrower> listBr= brdao.getBorrowerByStatus("borrowed");
+        BookDAO bdao = new BookDAO();
+        ArrayList<Book> listBook = bdao.getAllBook();
+
+        UserDAO udao = new UserDAO();
+        ArrayList<User> listUser = udao.getAllUser();
+
+        BorrowerDAO brdao = new BorrowerDAO();
+        ArrayList<Borrower> listBr = brdao.getBorrowerByStatus("borrowed");
+        ArrayList<Borrower> listPr = brdao.getBorrowerByStatus("processing");
+
         req.setAttribute("numberBorrow", listBr.size());
-        ArrayList<Borrower> listPr= brdao.getBorrowerByStatus("processing");
+        req.setAttribute("numberUser", listUser.size());
         req.setAttribute("numberProcessing", listPr.size());
-        
+        req.setAttribute("numberBook", listBook.size());
         req.getRequestDispatcher("HomePageAdmin.jsp").forward(req, resp);
     }
 
@@ -52,6 +55,5 @@ public class HomePageAdmin extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doGet(req, resp);
     }
-    
-    
+
 }

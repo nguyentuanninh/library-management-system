@@ -4,13 +4,33 @@
         <servlet-name>HomePageUser</servlet-name>
         <servlet-class>controller.HomePageUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewFeedback</servlet-name>
+        <servlet-class>controller.ViewFeedback</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomePageUser</servlet-name>
         <url-pattern>/HomePageUser</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ActionSendFeedback</servlet-name>
+        <servlet-class>controller.ActionSendFeedback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActionSendFeedback</servlet-name>
+        <url-pattern>/ActionSendFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SearchBorrower</servlet-name>
         <servlet-class>controller.SearchBorrower</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListBorrowUser</servlet-name>
+        <servlet-class>controller.ListBorrowUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>acctionborrow</servlet-name>
+        <servlet-class>controller.ActionBorrow</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchBorrower</servlet-name>
@@ -40,7 +60,6 @@
         <servlet-name>ReturnBorrower</servlet-name>
         <url-pattern>/ReturnBorrower</url-pattern>
     </servlet-mapping>
-        
     <servlet>
         <servlet-name>ListBorrowAdmin</servlet-name>
         <servlet-class>controller.ListBorrowAdmin</servlet-class>
@@ -64,7 +83,7 @@
     <servlet-mapping>
         <servlet-name>UpdateBook</servlet-name>
         <url-pattern>/UpdateBook</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>CreateBook</servlet-name>
         <servlet-class>controller.CreateBook</servlet-class>
@@ -72,7 +91,7 @@
     <servlet-mapping>
         <servlet-name>CreateBook</servlet-name>
         <url-pattern>/CreateBook</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>ViewBook</servlet-name>
         <servlet-class>controller.ViewBook</servlet-class>
@@ -80,8 +99,7 @@
     <servlet-mapping>
         <servlet-name>ViewBook</servlet-name>
         <url-pattern>/ViewBook</url-pattern>
-    </servlet-mapping> 
-    
+    </servlet-mapping>
     <servlet>
         <servlet-name>ResetPassword</servlet-name>
         <servlet-class>controller.ResetPassword</servlet-class>
@@ -89,7 +107,7 @@
     <servlet-mapping>
         <servlet-name>ResetPassword</servlet-name>
         <url-pattern>/ResetPassword</url-pattern>
-    </servlet-mapping>   
+    </servlet-mapping>
     <servlet>
         <servlet-name>UpdateUser</servlet-name>
         <servlet-class>controller.UpdateUser</servlet-class>
@@ -97,7 +115,7 @@
     <servlet-mapping>
         <servlet-name>UpdateUser</servlet-name>
         <url-pattern>/UpdateUser</url-pattern>
-    </servlet-mapping>   
+    </servlet-mapping>
     <servlet>
         <servlet-name>ViewUser</servlet-name>
         <servlet-class>controller.ViewUser</servlet-class>
@@ -105,7 +123,7 @@
     <servlet-mapping>
         <servlet-name>ViewUser</servlet-name>
         <url-pattern>/ViewUser</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>CreateUser</servlet-name>
         <servlet-class>controller.CreateUser</servlet-class>
@@ -113,7 +131,7 @@
     <servlet-mapping>
         <servlet-name>CreateUser</servlet-name>
         <url-pattern>/CreateUser</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>controller.DeleteUser</servlet-class>
@@ -121,8 +139,7 @@
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
-    </servlet-mapping> 
-
+    </servlet-mapping>
     <servlet>
         <servlet-name>Register</servlet-name>
         <servlet-class>controller.Register</servlet-class>
@@ -145,7 +162,7 @@
     </servlet>
     <servlet>
         <servlet-name>Feedback</servlet-name>
-        <servlet-class>controller.Feedback</servlet-class>
+        <servlet-class>controller.FeedbackUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
@@ -187,6 +204,18 @@
         <servlet-name>HomePageAdmin</servlet-name>
         <url-pattern>/HomePageAdmin</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListBorrowUser</servlet-name>
+        <url-pattern>/ListBorrowUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>acctionborrow</servlet-name>
+        <url-pattern>/ActionBorrow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewFeedback</servlet-name>
+        <url-pattern>/ViewFeedback</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -199,4 +228,12 @@
     <welcome-file-list>
         <welcome-file>Login</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorPage.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/ErrorPage.jsp</location>
+    </error-page>
 </web-app>

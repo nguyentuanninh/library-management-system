@@ -28,7 +28,7 @@
                 <div class="input-group">
                     <input name="name" class="form-control" type="text" placeholder="Search name of book..." aria-label="Search for..."
                            aria-describedby="btnNavbarSearch" />
-                    
+
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
                             class="fas fa-search"></i></button> 
                 </div>
@@ -120,22 +120,23 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <nav class="me-3">
-                                <ul class="pagination pagination-sm justify-content-end">
-                                    <c:forEach begin="1" end="${numberOfPage}" var="i">
-                                        <c:if test="${i== page}">
-                                            <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="ListBook?page=${i}">${i}</a>
-                                            </li>
-                                        </c:if>
-                                        <c:if test="${i!= page}">
-                                            <li class="page-item"><a class="page-link" href="ListBook?page=${i}">${i}</a></li>
+                             <c:if test="${numberOfPage >1}"> 
+                                <nav class="me-3">
+                                    <ul class="pagination pagination-sm justify-content-end">
+                                        <c:forEach begin="1" end="${numberOfPage}" var="i">
+                                            <c:if test="${i== page}">
+                                                <li class="page-item active" aria-current="page">
+                                                    <a class="page-link" href="ListBook?page=${i}">${i}</a>
+                                                </li>
                                             </c:if>
+                                            <c:if test="${i!= page}">
+                                                <li class="page-item"><a class="page-link" href="ListBook?page=${i}">${i}</a></li>
+                                                </c:if>
 
-                                    </c:forEach>
-                                </ul>
-                            </nav>
+                                        </c:forEach>
+                                    </ul>
+                                </nav>
+                            </c:if>
                         </div>
                     </div>
                 </main>

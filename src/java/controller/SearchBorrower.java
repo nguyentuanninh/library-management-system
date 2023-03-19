@@ -46,25 +46,9 @@ public class SearchBorrower extends HttpServlet {
         BorrowerDAO bDAO = new BorrowerDAO();
                System.out.println(action+" "+ username);
         ArrayList<Borrower> listAll = bDAO.getBorrowerByStatusAndUserId(action, username);
-        int total = listAll.size();
-        int numberPerPage = 6;
-        int numberOfPage = (total % numberPerPage == 0) ? (total / numberPerPage) : (total / numberPerPage + 1); //Số trang
-        int page;
-        String xpage = req.getParameter("page");
-        if (xpage == null) {
-            page = 1;
-        } else {
-            page = Integer.parseInt(xpage);
-        }
- 
-        int start = (page - 1) * numberPerPage;
-        int end = Math.min((page) * numberPerPage, total);
-        ArrayList<Borrower> list = bDAO.getListBorrowerByPage(listAll, start, end);
         req.setAttribute("action", action);
         req.setAttribute("usernameSearch", username);
-        req.setAttribute("page", page);
-        req.setAttribute("numberOfPage", numberOfPage);
-        req.setAttribute("list", list);
+        req.setAttribute("list", listAll);
         switch (action) {
             case "processing":
                 req.getRequestDispatcher("ListProcessingAdmin.jsp").forward(req, resp);

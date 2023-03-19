@@ -33,7 +33,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             List User
                         </a>
-                        <a class="nav-link" href="Feedback">
+                        <a class="nav-link" href="ViewFeedback">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Feedback
                         </a>

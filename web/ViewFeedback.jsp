@@ -24,10 +24,10 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
-            <form method="post" action="SearchBorrower" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form method="post" action="SearchBorrower" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">      
                 <div class="input-group">
                     <input type="hidden" name="action" value="${action}"/>
-                    <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search username..." aria-label="Search for..."
+                    <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search name of book..." aria-label="Search for..."
                            aria-describedby="btnNavbarSearch" />
 
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
@@ -64,34 +64,21 @@
 
                                         <thead>
                                             <tr>
-                                                <th class="text-center"><span>ID</span></th>
                                                 <th class="text-center"><span>Username</span></th>
-                                                <th class="text-center"><span>Book Id</span></th>
-                                                <th class="text-center"><span>Status</span></th>
-                                                <th class="text-center"><span>Borrowed date</span></th>
-                                                <th class="text-center"><span>Return date</span></th>
+                                                <th class="text-center"><span>Title</span></th>
+                                                <th class="text-center"><span>Content</span></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${requestScope.list}" var="i">
+                                            <c:forEach items="${requestScope.listFeedback}" var="i">
                                                 <tr>
-                                                    <td class="text-center">${i.id}</td>
+                                                    <td class="text-center">${i.username}</td>
 
                                                     <td class="text-center">
-                                                        <p>${i.username}<p>
+                                                        <p>${i.title}<p>
                                                     </td>
                                                     <td class="text-center">
-                                                        ${i.bookid}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="text-primary">${i.status}</span>
-                                                    </td>
-
-                                                    <td class="text-center">
-                                                        ${i.borrow_from}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        ${i.borrow_to}
+                                                        ${i.connent}
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -100,17 +87,17 @@
                                     </table>
                                 </div>
                             </div>
-                             <c:if test="${numberOfPage >1}">
-                                <nav class="me-3 ">
+                           <c:if test="${numberOfPage >1}">
+                                <nav class="me-3">
                                     <ul class="pagination pagination-sm justify-content-end">
                                         <c:forEach begin="1" end="${numberOfPage}" var="i">
                                             <c:if test="${i== page}">
                                                 <li class="page-item active" aria-current="page">
-                                                    <a class="page-link" href="ListBorrowAdmin?action=returned&page=${i}">${i}</a>
+                                                    <a class="page-link" href="ViewFeedback?page=${i}">${i}</a>
                                                 </li>
                                             </c:if>
                                             <c:if test="${i!= page}">
-                                                <li class="page-item"><a class="page-link" href="ListBorrowAdmin?action=returned&page=${i}">${i}</a></li>
+                                                <li class="page-item"><a class="page-link" href="ViewFeedback?page=${i}">${i}</a></li>
                                                 </c:if>
 
                                         </c:forEach>
@@ -128,17 +115,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script>
-            window.addEventListener('DOMContentLoaded', event => {
-                const sidebarToggle = document.body.querySelector('#sidebarToggle');
-                if (sidebarToggle) {
-                    sidebarToggle.addEventListener('click', event => {
-                        event.preventDefault();
-                        document.body.classList.toggle('sb-sidenav-toggled');
-                        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-                    });
-                }
+                                                               window.addEventListener('DOMContentLoaded', event => {
+                                                                   const sidebarToggle = document.body.querySelector('#sidebarToggle');
+                                                                   if (sidebarToggle) {
+                                                                       sidebarToggle.addEventListener('click', event => {
+                                                                           event.preventDefault();
+                                                                           document.body.classList.toggle('sb-sidenav-toggled');
+                                                                           localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+                                                                       });
+                                                                   }
 
-            });
+                                                               });
         </script>
 
     </body>
