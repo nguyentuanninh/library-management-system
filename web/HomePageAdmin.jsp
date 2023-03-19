@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="./style/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        
+
     </head>
 
     <body class="sb-nav-fixed" style="overflow-x: hidden">
@@ -51,7 +52,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">List Book Borrowed: <span style="font-size: 1.5rem" class="mx-2">${numberBorrow}</span></div>
+                                    <div class="card-body">List Book Borrowed: <span style="font-size: 1.5rem">${numberBorrow}</span></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="ListBorrowAdmin?action=borrowed">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -73,18 +74,75 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
+                                        Top User Borrowed
                                     </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body">
+                                        <table class="table user-list">
+
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center"><span>Username</span></th>
+                                                    <th class="text-center"><span>Total</span></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <c:forEach begin="0" end="${requestScope.listTopUser.size()-1}" var="i" >
+                                                    <tr class=" bg-success ${i eq 0?"bg-danger":""} 
+                                                            ${i eq 1?"bg-warning":""}
+                                                            ${i eq 2?"bg-success":""}">
+                                                        <td class="text-center">
+                                                            ${listTopUser.get(i).name}
+                                                        </td>
+
+                                                        <td class="text-center">
+                                                            ${listTopUser.get(i).total}
+                                                        </td>
+
+                                                    </tr>
+                                                </c:forEach>
+
+                                            </tbody>
+                                        </table></div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
+                                        Top borrowed books
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body">
+                                        <table class="table user-list">
+
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center"><span>Book</span></th>
+                                                    <th class="text-center"><span>Total</span></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <c:forEach begin="0" end="${requestScope.listTopBook.size()-1}" var="i" >
+                                                    <tr class=" bg-success ${i eq 0?"bg-danger":""} 
+                                                            ${i eq 1?"bg-warning":""}
+                                                            ${i eq 2?"bg-success":""}">
+                                                        <td class="text-center">
+                                                            ${listTopBook.get(i).name}
+                                                        </td>
+
+                                                        <td class="text-center">
+                                                            ${listTopBook.get(i).total}
+                                                        </td>
+
+                                                    </tr>
+                                                </c:forEach>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +153,7 @@
                 <%@include file="./Footer.jsp"%>
             </div>
         </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script>
             window.addEventListener('DOMContentLoaded', event => {

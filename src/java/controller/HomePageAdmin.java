@@ -7,10 +7,12 @@ package controller;
 import DAO.BookDAO;
 import DAO.BorrowerDAO;
 import DAO.CategoryDAO;
+import DAO.DAOO;
 import DAO.UserDAO;
 import entity.Book;
 import entity.Borrower;
 import entity.Category;
+import entity.TopBook;
 import entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -33,6 +35,13 @@ public class HomePageAdmin extends HttpServlet {
             resp.sendRedirect("Login");
             return;
         }
+        
+        //table top borrowed book
+        DAOO dao= new DAOO();
+        ArrayList<TopBook> listTopBook = dao.getTopBook();
+        ArrayList<TopBook> listTopUser = dao.getTopUser();
+        req.setAttribute("listTopBook", listTopBook);
+        req.setAttribute("listTopUser", listTopUser);
         
         BookDAO bdao = new BookDAO();
         ArrayList<Book> listBook = bdao.getAllBook();
