@@ -32,11 +32,16 @@ public class UpdateBook extends HttpServlet {
             String author = request.getParameter("author");
             int category = Integer.parseInt(request.getParameter("category"));
             String publisher = request.getParameter("publisher");
+            String avt = request.getParameter("avt");
+            if(avt.length()== 0){
+                avt= "img/book/book.jpg";
+            }
             String language = request.getParameter("language");
             int total = Integer.parseInt(request.getParameter("total"));
             int current = Integer.parseInt(request.getParameter("current"));
             String position = request.getParameter("position");
-            Book newBook = new Book(bookid, name, author, category, publisher, language, total, current, position);
+            System.out.println(avt);
+            Book newBook = new Book(bookid, name, author,avt, category, publisher, language, total, current, position);
             BookDAO bDAO = new BookDAO();
             bDAO.updateBook(newBook);
             resp.sendRedirect("ViewBook?id="+bookid);

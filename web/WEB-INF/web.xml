@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>HomePageUser</servlet-name>
+        <servlet-class>controller.HomePageUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePageUser</servlet-name>
+        <url-pattern>/HomePageUser</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SearchBorrower</servlet-name>
         <servlet-class>controller.SearchBorrower</servlet-class>
     </servlet>

@@ -22,6 +22,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        System.out.println("aaa");
         if (session.getAttribute("username") != null) {
             if (session.getAttribute("role").equals("admin")) {
                 resp.sendRedirect("HomeAdminPage");

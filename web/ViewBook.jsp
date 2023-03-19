@@ -136,7 +136,7 @@
                                             
                                                                                             </div>
                                                                                         </div>-->
-<!--                                            <input  name="avt" type="hidden" value="${user.avt}"/>-->
+                                            <input  name="avt" type="hidden" value="${book.img}"/>
                                         </div>
                                         <input style="width: 20%" href="UpdateUser?id=${user.username}" type="submit" class="btn btn-primary" value="Update Book"></input>
                                     </form>

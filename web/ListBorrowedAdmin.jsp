@@ -28,7 +28,7 @@
                 <div class="input-group">
                     <input type="hidden" name="action" value="${action}"/>
                     <input name="name" value="${usernameSearch}" class="form-control" type="text" placeholder="Search username..." aria-label="Search for..."
-                            aria-describedby="btnNavbarSearch" />
+                           aria-describedby="btnNavbarSearch" />
 
                     <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
                             class="fas fa-search"></i></button> 
@@ -132,6 +132,7 @@
                                     </c:forEach>
                                 </ul>
                             </nav>
+
                         </div>
                     </div>
                 </main>
