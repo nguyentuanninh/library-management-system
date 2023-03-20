@@ -37,6 +37,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="ViewUser">View Profile</a></li>
                         <li><a class="dropdown-item" href="Logout">Logout</a></li>
                     </ul>
                 </li>
@@ -106,11 +107,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="ActionBorrow?id=${i.bookid}&url=${pageContext.request.contextPath}">
-                                                        <button class="btn btn-primary btn-sm mt-2 " ${i.current> 0? "" : "disabled"}>
+                                                    <form action="ActionBorrow" method="get">
+                                                        <input type="hidden" name="id" value="${i.bookid}" />
+                                                        <input type="hidden" name="url" value="${pageContext.request.contextPath}" />
+                                                        <button type="submit" class="btn btn-primary btn-sm mt-2 " ${i.current> 0? "" : "disabled"}>
                                                             Borrow
                                                         </button>
-                                                    </a>
+                                                    </form>
                                                 </div>     
                                             </div>
                                         </div>
@@ -118,7 +121,7 @@
                                 </div>
                             </div>
                         </c:forEach>
-                         <c:if test="${numberOfPage >1}">
+                        <c:if test="${numberOfPage >1}">
                             <nav class="me-3">
                                 <ul class="pagination pagination-sm justify-content-end">
                                     <c:forEach begin="1" end="${numberOfPage}" var="i">

@@ -4,7 +4,9 @@
  */
 package controller;
 
+import DAO.BookDAO;
 import DAO.BorrowerDAO;
+import entity.Book;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,8 +27,17 @@ public class ActionBorrow extends HttpServlet {
             resp.sendRedirect("Login");
             return;
         }
+        
         String url= req.getParameter("url");
         String bookid= req.getParameter("id");
+
+        BookDAO bookdao= new BookDAO();
+        Book book= bookdao.getBookById(Integer.parseInt(bookid));
+        book.setCurrent(book.getCurrent()-1);
+        bookdao.updateBook(book);
+        //Update quantity book
+        
+        //insert into borrower
         BorrowerDAO bdao= new BorrowerDAO();
         bdao.insertBorrower(session.getAttribute("username").toString(), bookid);
         resp.sendRedirect(url);
