@@ -86,7 +86,7 @@
                                                                 </span> 
                                                             </div>
                                                             <div class="d-flex flex-row">
-                                                                <span>
+                                                                <span class="${i.current eq 0?"text-danger":""}"  >
                                                                     <span style="font-weight: bold">Current: </span>  
                                                                     ${i.current}
                                                                 </span> 
@@ -106,11 +106,19 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="ActionBorrow?id=${i.bookid}&url=${pageContext.request.contextPath}">
+                                                    <form action="ActionBorrow" method="get">
+                                                        <input type="hidden" name="id" value="${i.bookid}" />
+                                                         <input type="hidden" name="url" value="${pageContext.request.contextPath}" />
+                                                        <button type="submit" class="btn btn-primary btn-sm mt-2 " ${i.current> 0? "" : "disabled"}>
+                                                            Borrow
+                                                        </button>
+                                                    </form>           
+                                                                
+<!--                                                    <a href="ActionBorrow?id=${i.bookid}&url=${pageContext.request.contextPath}">
                                                         <button class="btn btn-primary btn-sm mt-2 " ${i.current> 0? "" : "disabled"}>
                                                             Borrow
                                                         </button>
-                                                    </a>
+                                                    </a>-->
                                                 </div>     
                                             </div>
                                         </div>

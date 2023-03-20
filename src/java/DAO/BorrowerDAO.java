@@ -44,8 +44,8 @@ public class BorrowerDAO {
 
         }
     }
-    
-        public ArrayList<Borrower> getBorrowerByStatusAndUsername(String status, String username) {
+
+    public ArrayList<Borrower> getBorrowerByStatusAndUsername(String status, String username) {
         DBContext db = new DBContext();
         ArrayList<Borrower> list = new ArrayList<>();
         String sql = "select * from borrower where status= ? and username=?";
@@ -79,7 +79,6 @@ public class BorrowerDAO {
         }
         return list;
     }
-
 
     public ArrayList<Borrower> getBorrowerByStatus(String status) {
         DBContext db = new DBContext();
@@ -179,19 +178,19 @@ public class BorrowerDAO {
             System.out.println(e.getMessage());
         }
     }
-    
-    public void insertBorrower(String username, String bookid){
-        String sql= "insert into borrower (username, book_id, [status])\n" +
-                        "values (?, ?,'processing' )";
-        DBContext db= new DBContext();
+
+    public void insertBorrower(String username, String bookid) {
+        String sql = "insert into borrower (username, book_id, [status])\n"
+                + "values (?, ?,'processing' )";
+        DBContext db = new DBContext();
         try {
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, bookid);
-             ps.executeQuery();
+            ps.executeQuery();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("insertBorrower: " + e.getMessage());
         }
     }
 }

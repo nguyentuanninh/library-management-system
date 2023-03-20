@@ -103,7 +103,7 @@
                                                     </td>
 
                                                     <td class="text-center">
-                                                        <a href="ReturnBorrower?id=${i.id}" class="table-link" style="text-decoration: none;" title="Book Returned">
+                                                        <a href="ReturnBorrower?id=${i.id}&bookid=${i.bookid}" class="table-link" style="text-decoration: none;" title="Book Returned">
                                                             <span class="fa-stack">
                                                                 <i class="fa-solid fa-square-check"></i>
                                                             </span>

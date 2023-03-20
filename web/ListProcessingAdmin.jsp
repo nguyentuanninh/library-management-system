@@ -86,7 +86,7 @@
                                                         <span class="text-success">${i.status}</span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="CompleteOrder?id=${i.id}" class="table-link" style="text-decoration: none;" title="Order completion">
+                                                        <a href="CompleteOrder?id=${i.id}&bookid=${i.bookid}" class="table-link" style="text-decoration: none;" title="Order completion">
                                                             <span class="fa-stack">
                                                                 <i class="fa-solid fa-square-check"></i>
                                                             </span>
