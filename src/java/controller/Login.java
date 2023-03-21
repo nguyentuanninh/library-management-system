@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.getAttribute("username") != null) {
             if (session.getAttribute("role").equals("admin")) {
-                response.sendRedirect("HomeAdminPage");
+                response.sendRedirect("HomePageAdmin");
                 return;
             } else {
                 response.sendRedirect("HomeUserPage");
