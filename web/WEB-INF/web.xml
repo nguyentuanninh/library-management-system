@@ -13,14 +13,6 @@
         <url-pattern>/HomePageUser</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ActionSendFeedback</servlet-name>
-        <servlet-class>controller.ActionSendFeedback</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ActionSendFeedback</servlet-name>
-        <url-pattern>/ActionSendFeedback</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>SearchBorrower</servlet-name>
         <servlet-class>controller.SearchBorrower</servlet-class>
     </servlet>
