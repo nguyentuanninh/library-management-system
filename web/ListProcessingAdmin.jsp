@@ -91,7 +91,7 @@
                                                                 <i class="fa-solid fa-square-check"></i>
                                                             </span>
                                                         </a>
-                                                        <a href="DeleteOrder?id=${i.id}" class="table-link danger" style="text-decoration: none;" 
+                                                        <a href="DeleteOrder?id=${i.id}&bookid=${i.bookid}" class="table-link danger" style="text-decoration: none;" 
                                                            title="Canncel Order" onclick="return confirm('Are you sure cancel order: ${i.id}?');">
                                                             <span class="fa-stack">
                                                                 <i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
@@ -100,6 +100,7 @@
                                                     </td>
                                                 </tr>
                                             </c:forEach>
+                                             
 
                                         </tbody>
                                     </table>
