@@ -39,9 +39,10 @@ public class ViewBook extends HttpServlet {
 
             req.setAttribute("book", book);
             req.getRequestDispatcher("ViewBook.jsp").forward(req, resp);
+            
         } catch (Exception e) {
         }
-        resp.sendRedirect("ListBook");
+        
     }
 
 }

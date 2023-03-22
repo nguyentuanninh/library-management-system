@@ -26,7 +26,7 @@ public class HomePageUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if (session.getAttribute("username") == null) {
+        if (session.getAttribute("username") == null || session.getAttribute("role") == null || !session.getAttribute("role").equals("user")) {
             resp.sendRedirect("Login");
             return;
         }

@@ -31,10 +31,10 @@ public class SearchBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-//        if (session.getAttribute("username") == null) {
-//            resp.sendRedirect("Login");
-//            return;
-//        }
+        if (session.getAttribute("username") == null) {
+            resp.sendRedirect("Login");
+            return;
+        }
         String name = req.getParameter("name");
 
         CategoryDAO cDAO = new CategoryDAO();
