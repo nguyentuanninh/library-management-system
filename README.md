@@ -38,13 +38,14 @@ $ git clone https://github.com/nguyentuanninh/library-management-system.git
 3. Run file DBScript.sql
 <br/>
 <img width="1604" src="./screen/Database.png">
+
 ## Main interface
-|<img width="1604" src="./screen/Login.png"> |  <img width="1604" src="./screen/Register.png">|<img width="1604"  src="./screen/AdminHome.png">|
+<img width="1604" src="./screen/Login.png">  <img width="1604" src="./screen/Register.png"><img width="1604"  src="./screen/AdminHome.png">
 
-|<img width="1604" src="./screen/AdminListReturn.png"> |  <img width="1604" src="./screen/AdminListBook.png">|<img width="1604"  src="./screen/AdminAddBook.png">|
+<img width="1604" src="./screen/AdminListReturn.png">  <img width="1604" src="./screen/AdminListBook.png"><img width="1604"  src="./screen/AdminAddBook.png">
 
-|<img width="1604" src="./screen/AdminListProcessing.png">   |  <img width="1604" src="./screen/AdminListReturn.png">|<img width="1604"  src="./screen/AdminListUser.png">|
+<img width="1604" src="./screen/AdminListProcessing.png">    <img width="1604" src="./screen/AdminListReturn.png"><img width="1604"  src="./screen/AdminListUser.png">
 
-|<img width="1604" src="./screen/UserListBook.png">   |  <img width="1604" src="./screen/UserListProcessing.png">|<img width="1604"  src="./screen/UserListBorrow.png">|
+<img width="1604" src="./screen/UserListBook.png">   <img width="1604" src="./screen/UserListProcessing.png"><img width="1604"  src="./screen/UserListBorrow.png">
 
-|<img width="1604" src="./screen/UserListReturn.png">   |  <img width="1604" src="./screen/UserSendFeedback.png">|<img width="1604"  src="./screen/UserViewProfile.png">|
+<img width="1604" src="./screen/UserListReturn.png">     <img width="1604" src="./screen/UserSendFeedback.png"><img width="1604"  src="./screen/UserViewProfile.png">
