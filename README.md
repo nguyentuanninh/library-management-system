@@ -10,7 +10,12 @@ A simple website for library management system on Java and SQL server
 - JavaScript
 
 #### Back-End
-- Java, JSP, Servlet
+- Java
+- JSP
+- Servlet
+##### Lilaray
+- JSTL
+- JDBC
 
 #### Database management system
 - SQL Server
