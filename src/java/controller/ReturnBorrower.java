@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  *
@@ -46,10 +47,11 @@ public class ReturnBorrower extends HttpServlet {
         book.setCurrent(book.getCurrent()+1);
         bdao.updateBook(book);
         
-        //Update status borrow to Return when admin click button
+        //Update status borrow to Return, update date return when admin click button
         BorrowerDAO bDAO = new BorrowerDAO();
         Borrower b = bDAO.getBorrowerById(id);
         b.setStatus("Returned");
+        b.setBorrow_to(new Date().toString());
         bDAO.updateBorrower(b);
         resp.sendRedirect("ListBorrowAdmin?action=borrowed");
     }
